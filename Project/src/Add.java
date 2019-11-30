@@ -1,5 +1,3 @@
-package Задание1;
-
 import java.util.Scanner;
 
 /**
