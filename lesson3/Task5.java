@@ -6,10 +6,11 @@ import java.util.Scanner;
 public class Task5 {
     public static void main(String args[]) {
         //Напишите программу, обнуляющие все биты числа, кроме нескольких последних
+        //Выведите число, которое состоит только из n последних бит числа A (то есть обнулите все биты числа A, кроме последних n)
         Scanner scanner = new Scanner(System.in);
         Integer a = scanner.nextInt();
         Integer b = scanner.nextInt();
-        Integer q = a &= (1 << b) - 1;
+        Integer q = a & (1 << b) - 1;
         System.out.println(q);
     }
 }
