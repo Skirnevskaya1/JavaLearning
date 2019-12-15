@@ -12,7 +12,7 @@ public class Task1 {
         System.out.println("Введите y: ");
         int y = Integer.parseInt(scanner.next());
         if ((x == 4 && y == 0) || (x == -4 && y == 0) || (x == 0 && y == 6))
-            System.out.println(y + " = k * " + x + " + b");
-        else System.out.println("Ошибка!");
+            System.out.println("Принадлежит выделенной области");
+        else System.out.println("Не принадлежит выделенной области");
     }
 }

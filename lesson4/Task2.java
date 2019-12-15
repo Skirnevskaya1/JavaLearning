@@ -12,11 +12,11 @@ public class Task2 {
         System.out.println("Введите y: ");
         int y = Integer.parseInt(scanner.next());
         if ((x == -4 && y == 4) || (x == -1 && y == 4))
-            System.out.println("Радиус круга: " + y + " = k * " + x + " + b");
+            System.out.println("Принадлежит выделенной области круга");
         else if ((x == 0 && y == 0) || (x == 6 && y == 0) || (x == 0 && y == 6))
-            System.out.println(y + " = k * " + x + " + b");
+            System.out.println("Принадлежит выделенной области");
         else
-            System.out.println("Ошибка!");
+            System.out.println("Не принадлежит выделенной области");
 
     }
 }
