@@ -6,9 +6,13 @@ import java.util.Scanner;
 public class Task1 {
     //Запишите условия для точек, принадлежащих выделенной области
     public static void main(String args[]) {
-        int x = 0, y = 0;
-        if ((x == 4 && y == 0) && (x == -4 && y == 0) && (x == 0 && y == 6))
-            System.out.println("Получился треугольник");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите x: ");
+        int x = Integer.parseInt(scanner.next());
+        System.out.println("Введите y: ");
+        int y = Integer.parseInt(scanner.next());
+        if ((x == 4 && y == 0) || (x == -4 && y == 0) || (x == 0 && y == 6))
+            System.out.println(y + " = k * " + x + " + b");
         else System.out.println("Ошибка!");
     }
 }

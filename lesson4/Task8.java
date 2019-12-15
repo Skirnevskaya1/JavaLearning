@@ -12,10 +12,10 @@ public class Task8 {
     public static void main(String args[]) {
         Scanner scanner = new Scanner(System.in);
         int x = Integer.parseInt(scanner.next());
-        int b= x%10;
-        int a=x/10;
+        int b = x % 10;
+        int a = x / 10;
 
-        if (x>=1 && x<=100) {
+        if (x >= 1 && x <= 100) {
             switch (a) {
                 case 1:
                     System.out.print("X");
@@ -80,7 +80,6 @@ public class Task8 {
                     System.out.print("X");
                     break;
             }
-        }
-        else System.out.print("Error");
+        } else System.out.print("Error");
     }
 }
