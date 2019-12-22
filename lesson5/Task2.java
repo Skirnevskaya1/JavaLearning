@@ -4,10 +4,9 @@ import java.util.Scanner;
  * Created by User on 22.12.2019.
  */
 public class Task2 {
-    public static void main(String args[]) {
-        Scanner scanner = new Scanner(System.in);
-        double a = scanner.nextDouble();//числитель
-        double b = scanner.nextDouble();//знаменатель
+    public static void main(String[] args) {
+        double a = 1;//числитель
+        double b = 2;//знаменатель
         int znak = 1;
         double sum = 0;
         int k = 0;//количество чисел ряда

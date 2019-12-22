@@ -5,7 +5,7 @@ import java.util.Scanner;
  */
 public class Task3 {
     //Вывести все квадраты натуральных чисел, не превосходящие данного числа N.
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Integer n = scanner.nextInt();
         double i = 1.0;

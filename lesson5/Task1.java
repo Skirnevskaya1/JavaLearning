@@ -6,10 +6,9 @@ import java.util.Scanner;
 public class Task1 {
     /*Найти сумму и количество элементов последовательности, которые по модулю больше 0.001.
     Последовательность: S = 1/2 - 2/4 + 3/8 - 4/16 + ... - ...*/
-    public static void main(String args[]) {
-        Scanner scanner = new Scanner(System.in);
-        double a = scanner.nextDouble();//числитель
-        double b = scanner.nextDouble();//знаменатель
+    public static void main(String[] args) {
+        double a = 1;//числитель
+        double b = 2;//знаменатель
         int znak = 1;
         double sum = 0;
         int k = 0;//количество чисел ряда

@@ -5,7 +5,7 @@ import java.util.Scanner;
  */
 public class Task7 {
     // Написать программу, в результате выполнения которой выяснится, входит ли цифра 2 в запись данного целого числа n.
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Integer n = scanner.nextInt();
 

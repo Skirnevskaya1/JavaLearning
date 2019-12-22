@@ -5,7 +5,7 @@ import java.util.Scanner;
  */
 public class Task5 {
     //Определить и вывести на экран цифры целого числа n.
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Integer n = scanner.nextInt();
         int i = 1;
