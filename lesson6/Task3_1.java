@@ -11,17 +11,14 @@ public class Task3_1 {
         System.out.println("Введите число столбцов - ");
         int lengthB = scanner.nextInt();
         int[][] array = new int[lengthA][lengthB];
-
         ArrayGenerator1.getIntArray(array, lengthA, lengthB);
         getSumArray(array, lengthA, lengthB);
     }
 
     public static int[][] getSumArray(int[][] array, int lengthA, int lengthB) {
-
         int a = 0;
         int b = 0;
         int sum = 0;
-
         for (int i = 0; i < lengthA; i++) {
             for (int j = 0; j < lengthB; j++) {
                 sum += array[i][j];
@@ -32,8 +29,6 @@ public class Task3_1 {
             }
         }
         System.out.println(b + "-й массив с максимальной суммой элементов: " + "\nСумма строки ровна = " + sum);
-
-
         return array;
     }
 }
