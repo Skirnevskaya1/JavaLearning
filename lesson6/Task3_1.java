@@ -15,20 +15,20 @@ public class Task3_1 {
         int max = 500;
         int min = 1;
 
-        for (int i=0;i < array.length; i++) {
-           array[i] = ArrayGenerator.getIntArray(lengthcount, max, min);
+        for (int i = 0; i < array.length; i++) {
+            array[i] = ArrayGenerator.getIntArray(lengthcount, max, min);
         }
-        for (int i=0;i < array.length; i++) {
+        for (int i = 0; i < array.length; i++) {
             getSumArray(array[i]);
         }
     }
 
     public static int getSumArray(int[] array) {
-        int sum =0;
+        int sum = 0;
         for (int i = 0; i < array.length; i++) {
             sum += array[i];
         }
-        System.out.println("Сумма равна = "+sum);
+        System.out.println("Сумма равна = " + sum);
         return sum;
     }
 }
