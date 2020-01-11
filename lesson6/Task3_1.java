@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.Scanner;
 
 /**
@@ -7,20 +8,22 @@ public class Task3_1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите количество массивов - ");
-        int lengthcount = scanner.nextInt();
+        int arrayQuantity = scanner.nextInt();
         System.out.println("Введите длину массива - ");
-        int lengthB = scanner.nextInt();
-
-        int[][] array = new int[lengthcount][lengthB];
+        int arrayLength = scanner.nextInt();
+        int[][] array = new int[arrayQuantity][arrayLength];
         int max = 500;
         int min = 1;
+        int maxArray = 0;
 
         for (int i = 0; i < array.length; i++) {
-            array[i] = ArrayGenerator.getIntArray(lengthcount, max, min);
+            array[i] = ArrayGenerator.getIntArray(arrayQuantity, max, min);
+            int q = getSumArray(array[i]);
+            if (q > maxArray) {
+                maxArray = q;
+            }
         }
-        for (int i = 0; i < array.length; i++) {
-            getSumArray(array[i]);
-        }
+        System.out.println("Максимальная сумма = " + maxArray);
     }
 
     public static int getSumArray(int[] array) {
@@ -28,7 +31,7 @@ public class Task3_1 {
         for (int i = 0; i < array.length; i++) {
             sum += array[i];
         }
-        System.out.println("Сумма равна = " + sum);
+        System.out.println("cумма = " + sum);
         return sum;
     }
 }

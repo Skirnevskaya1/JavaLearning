@@ -8,6 +8,7 @@ public class ArrayGenerator {
             array[i] = (int) (Math.random() * (max - min + 1) + min);
             System.out.print(array[i] + " ");
         }
+        System.out.print(" ");
         return array;
     }
 
@@ -15,7 +16,7 @@ public class ArrayGenerator {
         double[] array = new double[length];
         for (int i = 0; i < length; i++) {
             array[i] = (double) (Math.random() * (max - min + 1) + min);
-            System.out.print(array[i] + " ");
+            System.out.println(array[i] + " ");
         }
         return array;
     }
