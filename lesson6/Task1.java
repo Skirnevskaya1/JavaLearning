@@ -1,8 +1,3 @@
-import com.sun.javafx.scene.layout.region.Margins;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -12,17 +7,16 @@ public class Task1 {
     //Функция, вычисляющая среднее арифметическое элементов массива
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
-        String num = scanner.nextLine();
-        while (true) {
-            break;
+        String s = scanner.nextLine(); // считываем строку, имеет такой вид "1 2 3 4 5 6"
+        String[] numbersStr = s.split(" "); // разделяем строку по робелу, возвращает массив ["1"  "2"  "3"  "4"]
+        int[] numbers = new int[numbersStr.length];//Integer.parseInt(numbers1);
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = Integer.parseInt(numbersStr[i]);
         }
-        String numbers1 = String.valueOf(num.split(" "));
-        int numbers = Integer.parseInt(numbers1);
-        System.out.print("среднее арифметическое чисел равно: " + average(numbers));
+        System.out.println("Среднее арифметическое чисел равно: " + average(numbers));
     }
 
     public static double average(int[] numbers) {
-
         double average1 = 0;
         if (numbers.length > 0) {
             double sum = 0;
