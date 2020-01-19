@@ -1,15 +1,19 @@
+import java.util.Scanner;
+
 /**
  * Created by User on 18.01.2020.
  */
 public class Fraction {
     //Спроектируйте и реализуйте простейший класс, описывающий рациональную дробь.
     public static void main(String[] args) {
-        Fraction f = new Fraction(1, 4, 0);
+        Fraction f = new Fraction(1, 20, 6);
+        f.reduction();
+        f.selectIntPart();
     }
 
     int intPart; // целая часть дроби
-    int numerator; // числитель
-    int denominator; // знаменатель
+    private int numerator; // числитель
+    private int denominator; // знаменатель
 
     private Fraction(int intPart, int numerator, int denominator) {
         this.intPart = intPart;
@@ -18,28 +22,31 @@ public class Fraction {
     }
 
     //сокращение дроби
-    public int reduction() {
-        if (numerator != 0) {
-            int ost = denominator % numerator;
-            //НОД
-            while (numerator != 0) {
-                ost = denominator % numerator;
-                denominator = numerator;
-                numerator = ost;
-            }
-            int n = numerator;
-            if (n != 1) {
-                numerator /= n;
-                denominator /= n;
-            }
+    public void reduction() {
+        int a = numerator, b = denominator;
+        int n = gcd(a, b, intPart);
+        numerator = (intPart * numerator) / n;
+        denominator = denominator / n;
+        System.out.println("Введенная дробь: " + intPart + " * " + a + " / " + b);
+        System.out.println("Reduction -> " + intPart + " * " + numerator + " / " + denominator);
+    }
+
+    //НОД
+    private static int gcd(int numerator, int denominator, int intPart) {
+        while (denominator != 0) {
+            int tmp = (intPart * numerator) % denominator;
+            numerator = denominator;
+            denominator = tmp;
         }
-        return denominator;
+        return numerator;
     }
 
     //выделение целой части
-    public void getIntPart() {
+    public void selectIntPart() {
         if (numerator >= denominator) {
-            intPart = (numerator / denominator);
+            intPart = intPart + (numerator / denominator);
+            numerator %= denominator;
+            System.out.println("Select Int Part -> " + intPart + " * " + numerator + " / " + denominator);
         }
     }
 
