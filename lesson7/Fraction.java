@@ -18,13 +18,14 @@ public class Fraction {
     }
 
     //сокращение дроби
-    public void reduction() {
+    public int reduction() {
         if (numerator != 0) {
             int ost = denominator % numerator;
-            while (ost != 0) {
+            //НОД
+            while (numerator != 0) {
+                ost = denominator % numerator;
                 denominator = numerator;
                 numerator = ost;
-                ost = denominator % numerator;
             }
             int n = numerator;
             if (n != 1) {
@@ -32,6 +33,7 @@ public class Fraction {
                 denominator /= n;
             }
         }
+        return denominator;
     }
 
     //выделение целой части
