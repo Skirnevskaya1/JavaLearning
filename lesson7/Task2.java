@@ -1,11 +1,6 @@
 import java.util.Scanner;
-
-/**
- * Created by User on 18.01.2020.
- */
 public class Task2 {
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите число: ");
         int x = new Integer(Math.abs(scanner.nextInt()));
@@ -22,6 +17,7 @@ public class Task2 {
         convert = Integer.toHexString(x).toUpperCase();
         System.out.println(convert);
 
+        // помещается ли число х в ячейке типа byte
         if (x == (byte) x) {
             System.out.println("YES");
         } else System.out.println("NO");
@@ -30,6 +26,4 @@ public class Task2 {
             System.out.println("YES");
         } else System.out.println("NO");
     }
-
-
 }
