@@ -8,7 +8,7 @@ public class Task2 {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите число: ");
-        Integer x = new Integer(Math.abs(scanner.nextInt()));
+        int x = new Integer(Math.abs(scanner.nextInt()));
 
         // Бинарный формат числа
         String convert = Integer.toBinaryString(x);
@@ -22,11 +22,11 @@ public class Task2 {
         convert = Integer.toHexString(x).toUpperCase();
         System.out.println(convert);
 
-        if (x >= 0 && x <= 127) {
+        if (x == (byte) x) {
             System.out.println("YES");
         } else System.out.println("NO");
 
-        if (x >= 0 && x <= 32767) {
+        if (x == (short) x) {
             System.out.println("YES");
         } else System.out.println("NO");
     }
