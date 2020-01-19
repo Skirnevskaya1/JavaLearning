@@ -11,11 +11,11 @@ public class Fraction {
         f.selectIntPart();
     }
 
-    int intPart; // целая часть дроби
+    private int intPart; // целая часть дроби
     private int numerator; // числитель
     private int denominator; // знаменатель
 
-    private Fraction(int intPart, int numerator, int denominator) {
+    public Fraction(int intPart, int numerator, int denominator) {
         this.intPart = intPart;
         this.numerator = numerator;
         this.denominator = denominator;
