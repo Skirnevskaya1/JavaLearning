@@ -9,7 +9,7 @@ public class Task1 {
         Scanner scanner = new Scanner(System.in);
         String s = scanner.nextLine(); // считываем строку, имеет такой вид "1 2 3 4 5 6"
         String[] numbersStr = s.split(" "); // разделяем строку по робелу, возвращает массив ["1"  "2"  "3"  "4"]
-        int[] numbers = new int[numbersStr.length];//Integer.parseInt(numbers1);
+        int[] numbers = new int[numbersStr.length];
         for (int i = 0; i < numbers.length; i++) {
             numbers[i] = Integer.parseInt(numbersStr[i]);
         }
