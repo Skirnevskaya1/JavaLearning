@@ -1,47 +1,69 @@
-import java.util.Scanner;
-
 /**
  * Created by User on 18.01.2020.
  */
 public class Fraction {
+
     public static void main(String[] args) {
-        Fraction f = new Fraction(2, 3, 4, 1, 1, 10);// дробь
-        f.print();
+        Fraction f = new Fraction(1, 2, 6);
+        Fraction f2 = new Fraction(1, 3, 6);
+
+        Fraction a = f.addition(f2);
+        Fraction b = f.multiplication(f2);
+        Fraction c = f.division(f2);
     }
 
-    private double intPart; // целая часть дроби 1
-    private double numerator; // числитель 1
-    private double denominator; // знаменатель 1
+    private int intPart; // целая часть дроби
+    private int numerator; // числитель
+    private int denominator; // знаменатель
 
-    private double intPart2; // целая часть дроби 2
-    private double numerator2; // числитель 2 дроби
-    private double denominator2; // знаменатель 2 дроби
-
-    public Fraction(int intPart, int numerator, int denominator, int intPart2, int numerator2, int denominator2) {
+    public Fraction(int intPart, int numerator, int denominator) {
         this.intPart = intPart;
         this.numerator = numerator;
         this.denominator = denominator;
-        this.intPart2 = intPart2;
-        this.numerator2 = numerator2;
-        this.denominator2 = denominator2;
     }
 
-    //сокращение дроби
-    private String reduction(double intPart, double numerator, double denominator) {
-        double n = gcd(intPart, numerator, denominator);
-        numerator /= n;
-        denominator /= n;
-        return "Reduction -> " + intPart + " * " + numerator + " / " + denominator;
+    public Fraction multiplication(Fraction f2) {//умножение
+        double resultIntPart = 1;
+        double resultNumerator = (intPart * denominator + numerator) * (f2.intPart * f2.denominator + f2.numerator);
+        double resultDenominator = denominator * f2.denominator;
+        System.out.println("Multiplication : " + resultNumerator + " / " + resultDenominator);
+        System.out.println(reduction(resultIntPart, resultNumerator, resultDenominator) + "\n" + selectIntPart(resultIntPart, resultNumerator, resultDenominator));
+        return f2;
     }
 
-    //выделение целой части
-    private String selectIntPart(double intPart, double numerator, double denominator) {
-        if (numerator >= denominator) {
-            intPart = (numerator / denominator);
-            numerator -= denominator * intPart;
-            this.intPart += intPart;
+    public Fraction division(Fraction f2) {//деление дробей
+        double resultNumerator = (intPart * denominator + numerator) * f2.denominator;
+        double resultDenominator = denominator * (f2.intPart * f2.denominator + f2.numerator);
+        double resultIntPart = 1;
+        System.out.println("Division : " + resultIntPart + "*" + resultNumerator + " / " + resultDenominator);
+        System.out.println(reduction(resultIntPart, resultNumerator, resultDenominator) + "\n" + selectIntPart(resultIntPart, resultNumerator, resultDenominator));
+        return f2;
+    }
+
+    public void subtraction(Fraction f2) { //вычитание дробей
+
+        if (((gcd(intPart, numerator, denominator) / denominator) * numerator) < ((gcd(f2.intPart, f2.numerator, f2.denominator) / f2.denominator) * f2.numerator)) {
+            double resultIntPart = (intPart - 1) - f2.intPart;
+            double resultNumerator = ((denominator + (gcd(intPart, numerator, denominator) / denominator) / denominator) * numerator) - ((gcd(f2.intPart, f2.numerator, f2.denominator) / f2.denominator) * f2.numerator);
+            System.out.println("Subtraction : " + resultIntPart + "*" + resultNumerator + " / " + gcd(intPart, numerator, denominator) / denominator);
+        } else {
+            double resultIntPart = intPart - f2.intPart;
+            double resultNumerator = ((gcd(intPart, numerator, denominator) / denominator) * numerator) - ((gcd(intPart, numerator, denominator) / f2.denominator) * f2.numerator);
+            double resultDenominator = gcd(intPart, numerator, denominator);
+            System.out.println("Subtraction : " + resultIntPart + "*" + resultNumerator + " / " + resultDenominator);
+            System.out.println(reduction(resultIntPart, resultNumerator, resultDenominator) + "\n" + selectIntPart(resultIntPart, resultNumerator, resultDenominator));
         }
-        return "Select Int Part -> " + intPart + " * " + numerator + " / " + denominator;
+    }
+
+    public Fraction addition(Fraction f2) {
+
+        double resultIntPart = intPart + f2.intPart;
+
+        double resultNumerator = (f2.denominator / gcd(f2.intPart, f2.numerator, f2.denominator) + denominator / gcd(intPart, numerator, denominator));
+        double resultDenominator = denominator;
+        System.out.println("Addition : " + resultIntPart + "*" + resultNumerator + " / " + resultDenominator);
+        System.out.println(reduction(resultIntPart, resultNumerator, resultDenominator) + "\n" + selectIntPart(resultIntPart, resultNumerator, resultDenominator));
+        return f2;
     }
 
     //НОД
@@ -54,70 +76,31 @@ public class Fraction {
         return numerator;
     }
 
-    //НОД для знаменателей
-    private static double gcd1(double denominator, double denominator2) {
-        return denominator2 == 0 ? denominator : gcd1(denominator2, denominator % denominator2);
+    //сокращение дроби
+    public String reduction(double intPart, double numerator, double denominator) {
+        double n = gcd(numerator, denominator, intPart);
+        numerator = (intPart * numerator) / n;
+        denominator = denominator / n;
+        return "Reduction -> " + intPart + " * " + numerator + " / " + denominator;
     }
 
-    //НОК
-    private static double noc(double denominator, double denominator2) {
-        return denominator / gcd1(denominator, denominator2) * denominator2;
+    //выделение целой части
+    public String selectIntPart(double intPart, double numerator, double denominator) {
+        if (numerator >= denominator) {
+            intPart = (intPart - 1) + (numerator / denominator);
+            numerator %= denominator;
+        }
+        return "Select Int Part -> " + intPart + " * " + numerator + " / " + denominator;
     }
 
     //преобразование в double
-    public double toDouble(Fraction fraction) {
+    public double conversion(Fraction fraction) {
         double res = (double) (fraction.numerator / fraction.denominator);
         return res;
     }
 
-    public void addition() { //сумма дробей
-        double resultIntPart = intPart + intPart2;
-        double den = noc(denominator, denominator2);
-        double resultNumerator = ((den / denominator) * numerator) + ((den / denominator2) * numerator2);
-        double resultDenominator = den;
-        System.out.println("Addition : " + resultIntPart + "*" + resultNumerator + " / " + resultDenominator);
-        System.out.println(reduction(resultIntPart, resultNumerator, resultDenominator) + "\n" + selectIntPart(resultIntPart, resultNumerator, resultDenominator));
-    }
-
-    public void subtraction() { //вычитание дробей
-        double den = noc(denominator, denominator2);
-        if (((den / denominator) * numerator) < ((den / denominator2) * numerator2)) {
-            double resultIntPart = (intPart - 1) - intPart2;
-            double resultNumerator = ((denominator + (den / denominator) * numerator)) - ((den / denominator2) * numerator2);
-            System.out.println("Subtraction : " + resultIntPart + "*" + resultNumerator + " / " + den);
-        } else {
-            double resultIntPart = intPart - intPart2;
-            double resultNumerator = ((den / denominator) * numerator) - ((den / denominator2) * numerator2);
-            double resultDenominator = den;
-            System.out.println("Subtraction : " + resultIntPart + "*" + resultNumerator + " / " + resultDenominator);
-            System.out.println(reduction(resultIntPart, resultNumerator, resultDenominator) + "\n" + selectIntPart(resultIntPart, resultNumerator, resultDenominator));
-        }
-    }
-
-    public void multiplication() {//умножение
-        double resultNumerator = (intPart * denominator + numerator) * (intPart2 * denominator2 + numerator2);
-        double resultDenominator = denominator * denominator2;
-        double resultIntPart = 0;
-        System.out.println("Multiplication : " + resultIntPart + "*" + resultNumerator + " / " + resultDenominator);
-        System.out.println(reduction(resultIntPart, resultNumerator, resultDenominator) + "\n" + selectIntPart(resultIntPart, resultNumerator, resultDenominator));
-    }
-
-    public void division() {//деление дробей
-        double resultNumerator = (intPart * denominator + numerator) * denominator2;
-        double resultDenominator = denominator * (intPart2 * denominator2 + numerator2);
-        double resultIntPart = 0;
-        System.out.println("Division : " + resultIntPart + "*" + resultNumerator + " / " + resultDenominator);
-        System.out.println(reduction(resultIntPart, resultNumerator, resultDenominator) + "\n" + selectIntPart(resultIntPart, resultNumerator, resultDenominator));
-    }
-
     public void print() {
-        addition();
-        System.out.println("*****************************************");
-        subtraction();
-        System.out.println("*****************************************");
-        multiplication();
-        System.out.println("*****************************************");
-        division();
+
     }
 
 }
