@@ -26,8 +26,8 @@ public class Fraction {
         System.out.print("Select Int Part -> ");
         f.print();
         System.out.println("------------------------------------");
-        f.addition(f2);
-        System.out.print("Addition : ");
+        f.subtraction(f2);
+        System.out.print("Subtraction : ");
         f.print();
         System.out.print("Reduction -> ");
         f.reduction(f2);
@@ -36,8 +36,8 @@ public class Fraction {
         System.out.print("Select Int Part -> ");
         f.print();
         System.out.println("------------------------------------");
-        f.subtraction(f2);
-        System.out.print("Subtraction : ");
+        f.addition(f2);
+        System.out.print("Addition : ");
         f.print();
         System.out.print("Reduction -> ");
         f.reduction(f2);
@@ -62,7 +62,6 @@ public class Fraction {
         intPart = 1;
         numerator = (intPart * denominator + numerator) * (f2.intPart * f2.denominator + f2.numerator);
         denominator = denominator * f2.denominator;
-
     }
 
     public void division(Fraction f2) {//деление дробей
@@ -121,7 +120,6 @@ public class Fraction {
 
     public void print() {
         System.out.println(intPart + " * " + numerator + " / " + denominator);
-
     }
 
 }
