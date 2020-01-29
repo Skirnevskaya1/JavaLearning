@@ -65,8 +65,8 @@ public class Fraction {
 
     //деление дробей
     public void division(Fraction f2) {
-         numerator = f2.denominator * numerator;
-        denominator = f2.numerator *denominator;
+        numerator = f2.denominator * numerator;
+        denominator = f2.numerator * denominator;
     }
 
     //вычитание дробей
@@ -79,10 +79,11 @@ public class Fraction {
             denominator = gcd(numerator, denominator);
         }
     }
+
     //сложение
     public void addition(Fraction f2) {
-        numerator = (numerator*f2.denominator) + (f2.numerator*denominator);
-       denominator=f2.denominator*denominator;
+        numerator = (numerator * f2.denominator) + (f2.numerator * denominator);
+        denominator = f2.denominator * denominator;
     }
 
     //НОД
