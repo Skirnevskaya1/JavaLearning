@@ -4,8 +4,8 @@
 public class Fraction {
 
     public static void main(String[] args) {
-        Fraction f = new Fraction(1, 2, 6);
-        Fraction f2 = new Fraction(1, 3, 6);
+        Fraction f = new Fraction(5, 4);
+        Fraction f2 = new Fraction(3, 6);
         f.multiplication(f2);
         System.out.print("Multiplication : ");
         f.print();
@@ -26,16 +26,6 @@ public class Fraction {
         System.out.print("Select Int Part -> ");
         f.print();
         System.out.println("------------------------------------");
-        f.addition(f2);
-        System.out.print("Addition : ");
-        f.print();
-        System.out.print("Reduction -> ");
-        f.reduction(f2);
-        f.print();
-        f.selectIntPart(f2);
-        System.out.print("Select Int Part -> ");
-        f.print();
-        System.out.println("------------------------------------");
         f.subtraction(f2);
         System.out.print("Subtraction : ");
         f.print();
@@ -45,53 +35,60 @@ public class Fraction {
         f.selectIntPart(f2);
         System.out.print("Select Int Part -> ");
         f.print();
+        System.out.println("------------------------------------");
+        f.addition(f2);
+        System.out.print("Addition : ");
+        f.print();
+        System.out.print("Reduction -> ");
+        f.reduction(f2);
+        f.print();
+        f.selectIntPart(f2);
+        System.out.print("Select Int Part -> ");
+        f.print();
     }
 
-    private double intPart; // целая часть дроби
-    private double numerator; // числитель
-    private double denominator; // знаменатель
+    // числитель
+    private double numerator;
+    // знаменатель
+    private double denominator;
 
-
-    public Fraction(double intPart, double numerator, double denominator) {
-        this.intPart = intPart;
+    public Fraction(double numerator, double denominator) {
         this.numerator = numerator;
         this.denominator = denominator;
     }
 
-    public void multiplication(Fraction f2) {//умножение
-        intPart = 1;
-        numerator = (intPart * denominator + numerator) * (f2.intPart * f2.denominator + f2.numerator);
+    //умножение
+    public void multiplication(Fraction f2) {
+        numerator = numerator * f2.numerator;
         denominator = denominator * f2.denominator;
-
     }
 
-    public void division(Fraction f2) {//деление дробей
-        intPart = 1;
-        numerator = (intPart * denominator + numerator) * f2.denominator;
-        denominator = denominator * (f2.intPart * f2.denominator + f2.numerator);
+    //деление дробей
+    public void division(Fraction f2) {
+         numerator = f2.denominator * numerator;
+        denominator = f2.numerator *denominator;
     }
 
-    public void subtraction(Fraction f2) { //вычитание дробей
+    //вычитание дробей
+    public void subtraction(Fraction f2) {
 
-        if (((gcd(intPart, numerator, denominator) / denominator) * numerator) < ((gcd(f2.intPart, f2.numerator, f2.denominator) / f2.denominator) * f2.numerator)) {
-            intPart = (intPart - 1) - f2.intPart;
-            numerator = ((denominator + (gcd(intPart, numerator, denominator) / denominator) / denominator) * numerator) - ((gcd(f2.intPart, f2.numerator, f2.denominator) / f2.denominator) * f2.numerator);
+        if (((gcd(numerator, denominator) / denominator) * numerator) < ((gcd(f2.numerator, f2.denominator) / f2.denominator) * f2.numerator)) {
+            numerator = ((denominator + (gcd(numerator, denominator) / denominator) / denominator) * numerator) - ((gcd(f2.numerator, f2.denominator) / f2.denominator) * f2.numerator);
         } else {
-            intPart = intPart - f2.intPart;
-            numerator = ((gcd(intPart, numerator, denominator) / denominator) * numerator) - ((gcd(intPart, numerator, denominator) / f2.denominator) * f2.numerator);
-            denominator = gcd(intPart, numerator, denominator);
+            numerator = ((gcd(numerator, denominator) / denominator) * numerator) - ((gcd(numerator, denominator) / f2.denominator) * f2.numerator);
+            denominator = gcd(numerator, denominator);
         }
     }
-
+    //сложение
     public void addition(Fraction f2) {
-        intPart = intPart + f2.intPart;
-        numerator = (f2.denominator / gcd(f2.intPart, f2.numerator, f2.denominator) + denominator / gcd(intPart, numerator, denominator));
+        numerator = (numerator*f2.denominator) + (f2.numerator*denominator);
+       denominator=f2.denominator*denominator;
     }
 
     //НОД
-    private static double gcd(double intPart, double numerator, double denominator) {
+    private static double gcd(double numerator, double denominator) {
         while (denominator != 0) {
-            double tmp = (intPart * numerator) % denominator;
+            double tmp = (numerator) % denominator;
             numerator = denominator;
             denominator = tmp;
         }
@@ -100,15 +97,14 @@ public class Fraction {
 
     //сокращение дроби
     public void reduction(Fraction f2) {
-        double n = gcd(intPart, numerator, denominator);
-        numerator = (intPart * numerator) / n;
+        double n = gcd(numerator, denominator);
+        numerator = numerator / n;
         denominator = denominator / n;
     }
 
     //выделение целой части
     public void selectIntPart(Fraction f2) {
         if (numerator >= denominator) {
-            intPart = (intPart - 1) + (numerator / denominator);
             numerator %= denominator;
         }
     }
@@ -120,8 +116,6 @@ public class Fraction {
     }
 
     public void print() {
-        System.out.println(intPart + " * " + numerator + " / " + denominator);
-
+        System.out.println(numerator + " / " + denominator);
     }
-
 }
