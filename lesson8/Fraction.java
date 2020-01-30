@@ -66,8 +66,13 @@ public class Fraction {
     }
 
     public void subtraction(Fraction f2) {
-        numerator = (numerator * f2.denominator) - (f2.numerator * denominator);
-        denominator *= f2.denominator;
+        if (numerator < f2.numerator) {
+            numerator = - numerator;
+        }
+        else {
+            numerator = (numerator * f2.denominator) - (f2.numerator * denominator);
+            denominator = f2.denominator * denominator;
+        }
     }
 
     public void addition(Fraction f2) {
