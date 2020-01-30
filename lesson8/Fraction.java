@@ -86,8 +86,8 @@ public class Fraction {
 
     public void reduction(Fraction f2) {
         double n = gcd(numerator, denominator);
-        numerator = numerator / n;
-        denominator = denominator / n;
+        numerator /= n;
+        denominator /= n;
     }
 
     public void selectIntPart(Fraction f2) {
