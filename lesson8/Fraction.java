@@ -13,9 +13,9 @@ public class Fraction {
         System.out.print("Select Int Part : ");
         f.print();
         System.out.println("------------------------------------");
-        f2.division(f);
+        f.division(f2);
         System.out.print("Division : ");
-        f2.print();
+        f.print();
         System.out.print("Reduction : ");
         f.reduction();
         f.print();
@@ -89,13 +89,13 @@ public class Fraction {
 
     public void selectIntPart() {
         if (numerator >= denominator) {
-            numerator = numerator / denominator;
+            numerator = numerator/denominator;
             denominator = 0;
         }
     }
 
-    public double conversion(Fraction f2) {
-        return (double) (f2.numerator / f2.denominator);
+    public double conversion(Fraction fraction) {
+        return (double) (fraction.numerator / fraction.denominator);
     }
 
     public void print() {
