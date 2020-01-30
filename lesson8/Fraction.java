@@ -1,6 +1,3 @@
-/**
- * Created by User on 18.01.2020.
- */
 public class Fraction {
 
     public static void main(String[] args) {
