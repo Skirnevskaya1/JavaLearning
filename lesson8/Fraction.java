@@ -67,17 +67,17 @@ public class Fraction {
 
     public void subtraction(Fraction f2) {
         numerator = (numerator * f2.denominator) - (f2.numerator * denominator);
-        denominator = f2.denominator * denominator;
+        denominator *= f2.denominator;
     }
 
     public void addition(Fraction f2) {
         numerator = (numerator * f2.denominator) + (f2.numerator * denominator);
-        denominator = f2.denominator * denominator;
+        denominator *= f2.denominator;
     }
 
     private static double gcd(double numerator, double denominator) {
         while (denominator != 0) {
-            double tmp = (numerator) % denominator;
+            double tmp = numerator % denominator;
             numerator = denominator;
             denominator = tmp;
         }
