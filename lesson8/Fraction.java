@@ -56,13 +56,13 @@ public class Fraction {
     }
 
     public void multiplication(Fraction f2) {
-        numerator = numerator * f2.numerator;
-        denominator = denominator * f2.denominator;
+        numerator *= f2.numerator;
+        denominator *= f2.denominator;
     }
 
     public void division(Fraction f2) {
-        numerator = f2.denominator * numerator;
-        denominator = denominator * f2.numerator;
+        numerator *= f2.denominator;
+        denominator *= f2.numerator;
     }
 
     public void subtraction(Fraction f2) {
