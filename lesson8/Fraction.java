@@ -58,7 +58,6 @@ public class Fraction {
     public void multiplication(Fraction f2) {
         numerator *= f2.numerator;
         denominator *= f2.denominator;
-        f2.selectIntPart();
     }
 
     public void division(Fraction f2) {
