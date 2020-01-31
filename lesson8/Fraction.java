@@ -94,8 +94,8 @@ public class Fraction {
         }
     }
 
-    public double conversion(Fraction fraction) {
-        return (double) (fraction.numerator / fraction.denominator);
+    public double conversion(Fraction f2) {
+        return (double) (f2.numerator / f2.denominator);
     }
 
     public void print() {
