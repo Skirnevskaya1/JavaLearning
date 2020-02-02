@@ -17,15 +17,15 @@ public class Phone {
 
         a.receiveCall("Ann");
         a.receiveCall("Ann", a.number);
-        System.out.println(a.getNumber());
+        System.out.println("Number: " + a.getNumber());
 
         b.receiveCall("Sam");
         b.receiveCall("Sam", b.number);
-        System.out.println(b.getNumber());
+        System.out.println("Number: " + b.getNumber());
 
         c.receiveCall("Tom");
         c.receiveCall("Tom", c.number);
-        System.out.println(c.getNumber());
+        System.out.println("Number: " + c.getNumber());
     }
 
     public Phone() {
@@ -54,7 +54,7 @@ public class Phone {
     }
 
     public void print() {
-        System.out.println("number: " + number + "; model: " + model + "; weight: " + weight);
+        System.out.println("Number: " + number + "; model: " + model + "; weight: " + weight);
     }
 
 }
