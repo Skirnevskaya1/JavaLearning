@@ -17,15 +17,15 @@ public class Phone {
 
         a.receiveCall("Ann");
         a.receiveCall("Ann", a.number);
-        a.getNumber();
+        a.print2();
 
         b.receiveCall("Sam");
         b.receiveCall("Sam", b.number);
-        b.getNumber();
+        b.print2();
 
         c.receiveCall("Tom");
         c.receiveCall("Tom", c.number);
-        c.getNumber();
+        c.print2();
     }
 
     public Phone() {
@@ -49,12 +49,17 @@ public class Phone {
         System.out.println("Calling is " + name + "; number : " + number);
     }
 
-    public void getNumber() {
-        System.out.println("number: " + number);
+    public String getNumber() {
+        return "number: " + number;
     }
 
     public void print() {
         System.out.println("number: " + number + "; model: " + model + "; weight: " + weight);
+
+    }
+
+    public void print2() {
+        System.out.println(getNumber());
     }
 }
 
