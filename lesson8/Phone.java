@@ -18,14 +18,20 @@ public class Phone {
         a.receiveCall("Ann");
         a.receiveCall("Ann", a.number);
         System.out.println("Number: " + a.getNumber());
+        System.out.println("Model: " + a.getModel());
+        System.out.println("Weight: " + a.getWeight());
 
         b.receiveCall("Sam");
         b.receiveCall("Sam", b.number);
         System.out.println("Number: " + b.getNumber());
+        System.out.println("Model: " + b.getModel());
+        System.out.println("Weight: " + b.getWeight());
 
         c.receiveCall("Tom");
         c.receiveCall("Tom", c.number);
         System.out.println("Number: " + c.getNumber());
+        System.out.println("Model: " + c.getModel());
+        System.out.println("Weight: " + c.getWeight());
     }
 
     public Phone() {
@@ -51,6 +57,14 @@ public class Phone {
 
     public String getNumber() {
         return number;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public int getWeight() {
+        return weight;
     }
 
     public void print() {
