@@ -1,14 +1,15 @@
 package Ticket;
 
-public class Ticket {
+public abstract class Ticket {
+    private String ticketName;
 
-    public static void main(String[] args) {
-        boolean ticket = false;
-
-        BusTicket busTicket = new BusTicket();
-        busTicket.ticketPass(ticket);
-
-        MetroTicket metroTicket = new MetroTicket();
-        metroTicket.ticketPass(ticket);
+    public Ticket(String ticketName) {
+        this.ticketName = ticketName;
     }
+
+    public void showInfo() {
+        System.out.println("Ваш билет: " + ticketName);
+    }
+
+    public abstract void ticketPass(boolean ticket);
 }

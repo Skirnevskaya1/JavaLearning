@@ -2,12 +2,18 @@ package Ticket;
 
 public class BusTicket extends Ticket {
 
-    protected boolean ticketPass(boolean ticket) {
-        if (ticket == true) {
-            System.out.println("get on the bus");
-        } else {
-            System.out.println("no bus allowed");
-        }
-        return ticket;
+    public BusTicket(String ticketName) {
+        super(ticketName);
     }
+
+    @Override
+    public void ticketPass(boolean ticket) {
+        if (ticket==true) {
+            showInfo();
+            System.out.println("Проходите!");
+        } else {
+            System.out.println("Проход воспрещен!");
+        }
+    }
+
 }
