@@ -1,7 +1,13 @@
 package Translator;
 
-public class Roman {
+public class Roman extends Translator {
 
+    @Override
+    public void binaryNotation(String s) {
+
+    }
+
+    @Override
     public void romanNumeralTranslation(Integer x) {
         int b = x % 10;
         int a = x / 10;

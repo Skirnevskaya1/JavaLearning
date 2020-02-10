@@ -8,7 +8,7 @@ public class SingleTicket extends Ticket {
 
     @Override
     public void ticketPass(boolean ticket) {
-        if (ticket==true) {
+        if (ticket == true) {
             showInfo();
             System.out.println("Проходите!");
         } else {

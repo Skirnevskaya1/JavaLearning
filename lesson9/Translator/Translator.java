@@ -3,18 +3,11 @@ package Translator;
 import java.math.BigInteger;
 import java.util.Scanner;
 
-public class Translator {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите число: ");
-        BigInteger x = new BigInteger(String.valueOf(scanner.nextBigInteger()));
+public abstract class Translator {
 
-        Binary binary = new Binary();
-        binary.binaryNotation(x.toString(2));
+    public abstract void binaryNotation(String s);
 
-        Roman roman = new Roman();
-        roman.romanNumeralTranslation(x.intValue());
-    }
+    public abstract void romanNumeralTranslation(Integer x);
 }
 
 
