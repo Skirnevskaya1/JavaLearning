@@ -10,5 +10,6 @@ public abstract class Ticket {
     public void showInfo() {
         System.out.println("Ваш билет: " + ticketName);
     }
+
     public abstract void ticketPass(boolean ticket);
 }
