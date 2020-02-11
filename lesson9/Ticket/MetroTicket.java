@@ -12,8 +12,8 @@ public class MetroTicket extends Ticket {
             showInfo();
             System.out.println("Проходите!");
         } else {
+            showInfo();
             System.out.println("Проход воспрещен!");
         }
     }
-
 }
