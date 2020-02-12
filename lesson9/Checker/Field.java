@@ -1,14 +1,13 @@
 package Checker;
 
 class Field {
-    private Field[][] chessBoard = new Field[8][8];
-    private int whiteColour = 1, blackColour = 2;
+    public static void main(String[] args) {
+        Integer[][] chessBoard = new Integer[8][8];
+        for (int i = 0; i < chessBoard.length; i++) {
+            for (int j = 0; j < chessBoard[0].length; j++) {
 
-    public Field(Field[][] chessBoard, int whiteColour, int blackColour) {
-        this.chessBoard = chessBoard;
-        this.whiteColour = whiteColour;
-        this.blackColour = blackColour;
+            }
+        }
     }
-
 
 }

@@ -3,7 +3,8 @@ package Checker;
 public class SimpleChecker extends Checker{
 
     @Override
-    public void makeAMove(Checker a) {
+    public void makeAMove(Integer a) {
+
 
 
     }
