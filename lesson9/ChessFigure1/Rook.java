@@ -1,5 +1,4 @@
-package ChessFigure;
-
+package ChessFigure1;
 public class Rook extends ChessFigure {
     public Rook(int x, int y) {
         super(x, y);

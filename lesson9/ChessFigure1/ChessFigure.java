@@ -1,4 +1,4 @@
-package ChessFigure;
+package ChessFigure1;
 
 public abstract class ChessFigure {
     protected int x;

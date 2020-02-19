@@ -1,4 +1,4 @@
-package ChessFigure;
+package ChessFigure1;
 
 public class King extends ChessFigure {
 

@@ -1,4 +1,4 @@
-package ChessFigure;
+package ChessFigure1;
 
 public class Bishop extends ChessFigure {
 

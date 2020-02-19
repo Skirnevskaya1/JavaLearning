@@ -1,4 +1,4 @@
-package ChessFigure;
+package ChessFigure1;
 
 class Main {
     public static void main(String[] args) {
@@ -16,11 +16,11 @@ class Main {
         knight.move(0, 7);
         System.out.println("---------------------");
         ChessFigure queen = new Queen(4, 4);
-        queen.move(4, 4);
+        queen.move(2, 5);
         queen.move(4, 8);
         queen.move(8, 8);
         queen.move(0, -1);
-        queen.move(-8,-8);
+        queen.move(-8, -8);
         System.out.println("---------------------");
         ChessFigure bishop = new Bishop(4, 4);
         bishop.move(8, 8);
@@ -32,10 +32,11 @@ class Main {
         System.out.println("---------------------");
         ChessFigure pawn = new Pawn(4, 4);
         pawn.move(2, 4);
+        pawn.move(4, 2);
         pawn.move(4, 3);
-        pawn.move(5, 4);
         pawn.move(5, 5);
         pawn.move(0, 1);
+        pawn.move(4, 6);
         System.out.println("---------------------");
         ChessFigure rook = new Rook(4, 4);
         rook.move(1, 4);

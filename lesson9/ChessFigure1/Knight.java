@@ -1,4 +1,5 @@
-package ChessFigure;
+package ChessFigure1;
+
 
 public class Knight extends ChessFigure {
 
