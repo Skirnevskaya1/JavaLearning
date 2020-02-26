@@ -4,16 +4,13 @@ public class Main {
 
         Person person = new Person("Смирнов", 4000);
 
-//        Apartment apartment = new Apartment();
-//        apartment.addPerson("Иванов");
-//        apartment.addPerson("Петров");
-//        apartment.addPerson("Соболев");
+        Apartment apartment = new Apartment();
+        apartment.addPerson(person);
 
         Building building = new Building();
-        building.population("Харламов", 8000);
-        building.population("Батрудинов", 1000);
+        building.add(person);
 
-
-        Checking checking = new Checking("", 1);
+        Inspector inspector = new Inspector("Петров", 2);
+        inspector.checkBuilding(building);
     }
 }
