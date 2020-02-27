@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.Map;
 
 public class Inspector extends Person {
     HashMap<String, Building> inspector = new HashMap<String, Building>();
@@ -8,16 +9,21 @@ public class Inspector extends Person {
     }
 
     public void checkBuilding(Building building) {
-        if (building.floor1.isEmpty() || building.floor2.isEmpty() || building.floor3.isEmpty()) {
-            System.out.println("Найдено пустое место!");
-        } else {
-            System.out.println("Свободных квартир нет!");
-        }
+        for (Map.Entry<String, Building> pair : inspector.entrySet()) {
+            String key = pair.getKey();
+            Building value = pair.getValue();
 
-        if (addRating()) {
-            building.priorityQueue.remove(name);
-        } else {
-            System.out.println("Найдено пустое место!");
+            if (value.floor.isEmpty()) {
+                System.out.println("Найдено пустое место!" + key + "" + value);
+            } else {
+                System.out.println("Свободных квартир нет!");
+            }
+
+            if (rating > 3000) {
+                building.priorityQueue.remove(name);
+            } else {
+                System.out.println("Найдено пустое место!");
+            }
         }
     }
 }
