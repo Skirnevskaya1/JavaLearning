@@ -7,17 +7,18 @@ public class Inspector extends Person {
     public void checkBuildings(Building building) {
         //у каждого инспектора свое здание, проход
 
-            if (building.floor.isEmpty()) {
-                System.out.println("Найдено пустое место!");
-            } else {
-                System.out.println("Свободных квартир нет!");
-            }
-
-            for (Building building1: ){
-            if (rating > 3000) {
-                building.remove();
-            } else {
-                System.out.println("Найдено пустое место!");
-            }
-        }
+//            if (building.floor.isEmpty()) {
+//                System.out.println("Найдено пустое место!");
+//            } else {
+//                System.out.println("Свободных квартир нет!");
+//            }
+//
+//            for (Building building1: ){
+//            if (rating > 3000) {
+//                building.remove();
+//            } else {
+//                System.out.println("Найдено пустое место!");
+//            }
+//        }
     }
+}
