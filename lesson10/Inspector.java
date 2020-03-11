@@ -5,13 +5,10 @@ public class Inspector extends Person {
     }
 
     public void checkBuildings(Building building) {
-
         if (building.floors.isEmpty()) {
             System.out.println("Найдено пустая квартира!");
-        } else {
-            System.out.println("Свободных квартир нет!");
+        } else if (rating <= 1000) {
+            building.floors.remove();
         }
-
-
     }
 }

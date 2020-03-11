@@ -10,8 +10,8 @@ public class Building {
     }
 
     public boolean add(Person person) {
-        for (Apartment floor1 : floors) {
-            if (floor1.addPerson(person)) {
+        for (Apartment floor : floors) {
+            if (floor.addPerson(person)) {
                 return true;
             }
         }

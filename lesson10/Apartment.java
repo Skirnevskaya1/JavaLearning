@@ -3,18 +3,18 @@ import java.util.Arrays;
 
 public class Apartment {
 
-    ArrayList<Person> residence = new ArrayList<>();
+    ArrayList<Person> residences = new ArrayList<>();
 
     public Apartment(int amountRooms) {
         for (int i = 0; i < amountRooms; i++) {
-            residence.add(null);
+            residences.add(null);
         }
     }
 
     public boolean addPerson(Person person) {
-        for (int i = 0; i < residence.size(); i++) {
-            if (residence.get(i) == null) {
-                residence.set(i, person);
+        for (int i = 0; i < residences.size(); i++) {
+            if (residences.get(i) == null) {
+                residences.set(i, person);
                 return true;
             }
         }
@@ -22,11 +22,11 @@ public class Apartment {
     }
 
     public Person remove(int index) {
-        return residence.set(index, null);
+        return residences.set(index, null);
     }
 
     @Override
     public String toString() {
-        return Arrays.toString(residence.toArray());
+        return Arrays.toString(residences.toArray());
     }
 }
