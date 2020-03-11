@@ -9,13 +9,7 @@ public class Building {
         }
     }
 
-
     public boolean add(Person person) {
-
-//        Iterator<Apartment> apartmentIterator = floor.iterator();
-//        while (apartmentIterator.hasNext()) {
-//            Apartment a = apartmentIterator.next();
-
         for (Apartment floor1 : floors) {
             if (floor1.addPerson(person)) {
                 return true;

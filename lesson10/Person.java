@@ -1,11 +1,22 @@
-
-public class Person {
-    protected String name;
+public class Person implements Comparable<Person> {
     protected int rating;
+    protected String name;
 
-    public Person(String name, int rating) {
-        this.name = name;
+    public Person(int rating, String name) {
         this.rating = rating;
+        this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "Person{" +
+                "rating=" + rating +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
+    @Override
+    public int compareTo(Person o) {
+        return this.rating - o.rating;
+    }
 }

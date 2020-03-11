@@ -9,20 +9,17 @@ public class Apartment {
         for (int i = 0; i < amountRooms; i++) {
             residence.add(null);
         }
-
-
     }
 
     public boolean addPerson(Person person) {
-        for (int j = 0; j < residence.size(); j++) {
-            if (residence.get(j) == null) {
-                residence.set(j, person);
+        for (int i = 0; i < residence.size(); i++) {
+            if (residence.get(i) == null) {
+                residence.set(i, person);
                 return true;
             }
         }
         return false;
     }
-
 
     public Person remove(int index) {
         return residence.set(index, null);
@@ -33,4 +30,3 @@ public class Apartment {
         return Arrays.toString(residence.toArray());
     }
 }
-
