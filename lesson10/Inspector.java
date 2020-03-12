@@ -6,11 +6,11 @@ public class Inspector extends Person {
 
     public void checkBuildings(Building building) {
         for (Apartment buildingCheck : building.floors) {
-//            if (building.floors.isEmpty()) {
-            //              System.out.println("Найдено пустая квартира!");
-            if (building.floors.size() <= 1000) {
-                building.floors.remove();
+
+            if (getRating() <= 1000) {
+                buildingCheck.residences.remove(getRating());
             }
+            System.out.println(buildingCheck.residences.size());
         }
     }
 }

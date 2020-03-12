@@ -1,6 +1,6 @@
 public class Person implements Comparable<Person> {
-    protected int rating;
-    protected String name;
+    private int rating;
+    private String name;
 
     public Person(int rating, String name) {
         this.rating = rating;
@@ -18,5 +18,13 @@ public class Person implements Comparable<Person> {
     @Override
     public int compareTo(Person o) {
         return this.rating - o.rating;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public String getName() {
+        return name;
     }
 }

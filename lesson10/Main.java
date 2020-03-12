@@ -13,10 +13,6 @@ public class Main {
         priorityQueue.add(new Person(7000, "Иванов"));
         priorityQueue.add(new Person(3000, "Колмаков"));
 
-        Inspector inspector = new Inspector(1, "Inspector");
-        inspector.checkBuildings();
-
-
         while (!priorityQueue.isEmpty()) {
             System.out.println(priorityQueue.poll());
         }
@@ -24,9 +20,10 @@ public class Main {
         Apartment apartment = new Apartment(1);
         Building building = new Building(1);
 
+        Inspector inspector = new Inspector(1, "Inspector");
+        inspector.checkBuildings(building);
 
         HashMap<Inspector, Building> inspectorBuildingHashMap = new HashMap<>();
-        //inspectorBuildingHashMap.put(,building);
-
+        inspectorBuildingHashMap.put(inspector, building);
     }
 }
