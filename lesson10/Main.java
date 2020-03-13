@@ -1,8 +1,9 @@
 import java.util.HashMap;
+import java.util.Map;
 import java.util.PriorityQueue;
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws NullPointerException, IndexOutOfBoundsException {
         PriorityQueue<Person> priorityQueue = new PriorityQueue<Person>();
 
         priorityQueue.add(new Person(9000, "Петров"));
@@ -25,5 +26,11 @@ public class Main {
 
         HashMap<Inspector, Building> inspectorBuildingHashMap = new HashMap<>();
         inspectorBuildingHashMap.put(inspector, building);
+
+        for (Map.Entry<Inspector, Building> entry : inspectorBuildingHashMap.entrySet()) {
+            Inspector key = entry.getKey();
+            Building value = entry.getValue();
+            System.out.println(key + "" + value);
+        }
     }
 }
