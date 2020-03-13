@@ -1,10 +1,13 @@
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.PriorityQueue;
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
-        PriorityQueue<Person> priorityQueue = new PriorityQueue<Person>();
+    public static void main(String[] args) throws IOException {
+        PriorityQueue<Person> priorityQueue = new PriorityQueue<>();
 
+        System.out.println("Реестр всех жителей: ");
         priorityQueue.add(new Person(9000, "Петров"));
         priorityQueue.add(new Person(4000, "Смирнов"));
         priorityQueue.add(new Person(1000, "Соболев"));
@@ -16,14 +19,21 @@ public class Main {
         while (!priorityQueue.isEmpty()) {
             System.out.println(priorityQueue.poll());
         }
+        System.out.println("-----------------------------------");
 
         Apartment apartment = new Apartment(1);
         Building building = new Building(1);
+        building.add(new Person(5000, "Иванов"));
+        building.add(new Person(1000, "Иванов"));
 
         Inspector inspector = new Inspector(1, "Inspector");
         inspector.checkBuildings(building);
 
         HashMap<Inspector, Building> inspectorBuildingHashMap = new HashMap<>();
         inspectorBuildingHashMap.put(inspector, building);
+
+        for (Map.Entry<Inspector, Building> entry : inspectorBuildingHashMap.entrySet()) {
+            System.out.println(entry);
+        }
     }
 }

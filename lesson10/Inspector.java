@@ -5,12 +5,13 @@ public class Inspector extends Person {
     }
 
     public void checkBuildings(Building building) {
-        for (Apartment buildingCheck : building.floors) {
-
-            if (getRating() <= 1000) {
-                buildingCheck.residences.remove(getRating());
+        for (Apartment floor : building.floors) {
+            for (Person person : floor.residences) {
+                if (person.getRating() <= 1000) {
+                    floor.residences.remove(person);
+                }
+                System.out.println("Рейтинг жителя : " + person.getRating());
             }
-            System.out.println(buildingCheck.residences.size());
         }
     }
 }
