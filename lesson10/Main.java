@@ -23,7 +23,6 @@ public class Main {
         }
         System.out.println("-----------------------------------");
 
-        priorityQueue.retainAll(building.floors);
         building.add(priorityQueue.peek());
         System.out.println(building.toString());
 
