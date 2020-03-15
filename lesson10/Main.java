@@ -6,6 +6,8 @@ import java.util.PriorityQueue;
 public class Main {
     public static void main(String[] args) throws IOException {
         PriorityQueue<Person> priorityQueue = new PriorityQueue<>();
+        Apartment apartment = new Apartment(1);
+        Building building = new Building(1);
 
         System.out.println("Реестр всех жителей: ");
         priorityQueue.add(new Person(9000, "Петров"));
@@ -16,13 +18,15 @@ public class Main {
         priorityQueue.add(new Person(7000, "Иванов"));
         priorityQueue.add(new Person(3000, "Колмаков"));
 
-        Building building = new Building(1);
-
         while (!priorityQueue.isEmpty()) {
-            building.add(priorityQueue.poll());
             System.out.println(priorityQueue.poll());
         }
         System.out.println("-----------------------------------");
+
+        priorityQueue.retainAll(building.floors);
+        building.add(priorityQueue.peek());
+        System.out.println(building.toString());
+
         //building.floors.add(apartment);
         Inspector inspector = new Inspector(1, "Inspector");
         inspector.checkBuildings(building);
