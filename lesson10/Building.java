@@ -1,6 +1,7 @@
 import java.util.LinkedList;
 
 public class Building {
+
     LinkedList<Apartment> floors = new LinkedList<>();
 
     public Building(int amountFloor) {
@@ -24,12 +25,8 @@ public class Building {
 
     @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder();
-        for (Apartment floor : floors) {
-            builder.append(floor.toString()).append("\n");
-        }
-        return builder.toString();
+        return "Building{" +
+                "floors=" + floors +
+                '}';
     }
-
-
 }

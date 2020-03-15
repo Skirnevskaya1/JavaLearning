@@ -16,16 +16,14 @@ public class Main {
         priorityQueue.add(new Person(7000, "Иванов"));
         priorityQueue.add(new Person(3000, "Колмаков"));
 
+        Building building = new Building(1);
+
         while (!priorityQueue.isEmpty()) {
+            building.add(priorityQueue.poll());
             System.out.println(priorityQueue.poll());
         }
         System.out.println("-----------------------------------");
-
-        Apartment apartment = new Apartment(1);
-        Building building = new Building(1);
-        building.add(new Person(5000, "Иванов"));
-        building.add(new Person(1000, "Иванов"));
-
+        //building.floors.add(apartment);
         Inspector inspector = new Inspector(1, "Inspector");
         inspector.checkBuildings(building);
 
@@ -35,5 +33,6 @@ public class Main {
         for (Map.Entry<Inspector, Building> entry : inspectorBuildingHashMap.entrySet()) {
             System.out.println(entry);
         }
+
     }
 }
