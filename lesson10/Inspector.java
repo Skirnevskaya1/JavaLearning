@@ -7,10 +7,12 @@ public class Inspector extends Person {
     Apartment apartment;
 
     public void checkBuildings(Building building) {
-        building.floors.add(apartment);
         for (int i = 0; i < apartment.residences.size(); i++) {
             if (apartment.residences.get(i).getRating() <= 1000) {
                 apartment.residences.remove(i);
+                if (apartment.residences != null) {
+                    System.out.println(apartment.residences.toString() + " выселен из квартиры.");
+                }
             }
         }
     }
