@@ -4,15 +4,13 @@ public class Inspector extends Person {
         super(rating, name);
     }
 
-    Apartment apartment;
-
     public void checkBuildings(Building building) {
-        for (int i = 0; i < apartment.residences.size(); i++) {
-            if (apartment.residences.get(i).getRating() <= 1000) {
-                apartment.residences.remove(i);
-                if (apartment.residences != null) {
-                    System.out.println(apartment.residences.toString() + " выселен из квартиры.");
-                }
+
+        for (int i = 0; i < building.floors.size(); i++) {
+            // if (apartment.residences.get(i).getRating() <= 1000) {
+            building.floors.remove(i);
+            if (building.floors != null) {
+                System.out.println(building.floors.toString() + " выселен из квартиры.");
             }
         }
     }

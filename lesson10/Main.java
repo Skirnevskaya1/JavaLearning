@@ -6,10 +6,11 @@ import java.util.PriorityQueue;
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
         PriorityQueue<Person> priorityQueue = new PriorityQueue<>();
-        Apartment apartment = new Apartment(1);
-        Building building = new Building(1);
+        Apartment apartment = new Apartment(2);
+        Building building = new Building(2);
         Inspector inspector = new Inspector(1, "Inspector");
         HashMap<Inspector, Building> inspectorBuildingHashMap = new HashMap<>();
+        inspectorBuildingHashMap.put(inspector, building);
 
         priorityQueue.add(new Person(9000, "Петров"));
         priorityQueue.add(new Person(4000, "Смирнов"));
@@ -18,11 +19,18 @@ public class Main {
         priorityQueue.add(new Person(3000, "Колмаков"));
 
         while (!priorityQueue.isEmpty()) {
-            // System.out.println(priorityQueue.poll());
-
             Person person = priorityQueue.poll();
+
             if (building.add(person)) {
                 System.out.println("Заселяем жителя в дом:  " + person.toString());
+
+                if (person.getRating() <= 1000) {
+                    for (Map.Entry<Inspector, Building> entry : inspectorBuildingHashMap.entrySet()) {
+                        System.out.println(entry);
+                    }
+                    inspector.checkBuildings(building);
+
+                }
             } else {
                 priorityQueue.add(person);
                 System.out.println("Нельзя заселиться в дом, так как нет свободных мест.");
@@ -31,13 +39,5 @@ public class Main {
             Thread.sleep(1000);
             System.out.println(building.toString());
         }
-
-        inspectorBuildingHashMap.put(inspector, building);
-        inspector.checkBuildings(building);
-
-        for (Map.Entry<Inspector, Building> entry : inspectorBuildingHashMap.entrySet()) {
-            System.out.println(entry);
-        }
-
     }
 }
