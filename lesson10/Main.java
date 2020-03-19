@@ -20,17 +20,15 @@ public class Main {
 
         while (!priorityQueue.isEmpty()) {
             Person person = priorityQueue.poll();
-
             if (building.add(person)) {
                 System.out.println("Заселяем жителя в дом:  " + person.toString());
 
-                if (person.getRating() <= 1000) {
-                    for (Map.Entry<Inspector, Building> entry : inspectorBuildingHashMap.entrySet()) {
-                        System.out.println(entry);
-                    }
-                    inspector.checkBuildings(building);
 
+                for (Map.Entry<Inspector, Building> entry : inspectorBuildingHashMap.entrySet()) {
+                    inspector.checkBuildings(building);
+                    System.out.println(entry);
                 }
+
             } else {
                 priorityQueue.add(person);
                 System.out.println("Нельзя заселиться в дом, так как нет свободных мест.");
