@@ -8,7 +8,7 @@ public class Main {
         PriorityQueue<Person> priorityQueue = new PriorityQueue<>();
         Apartment apartment = new Apartment(2);
         Building building = new Building(2);
-        Inspector inspector = new Inspector(1, "Inspector");
+        Inspector inspector = new Inspector(2, "Inspector");
         HashMap<Inspector, Building> inspectorBuildingHashMap = new HashMap<>();
         inspectorBuildingHashMap.put(inspector, building);
 
@@ -22,20 +22,18 @@ public class Main {
             Person person = priorityQueue.poll();
             if (building.add(person)) {
                 System.out.println("Заселяем жителя в дом:  " + person.toString());
-
-
-                for (Map.Entry<Inspector, Building> entry : inspectorBuildingHashMap.entrySet()) {
-                    inspector.checkBuildings(building);
-                    System.out.println(entry);
-                }
-
             } else {
                 priorityQueue.add(person);
                 System.out.println("Нельзя заселиться в дом, так как нет свободных мест.");
             }
-
             Thread.sleep(1000);
             System.out.println(building.toString());
         }
+
+        for (Map.Entry<Inspector, Building> entry : inspectorBuildingHashMap.entrySet()) {
+            System.out.println(entry);
+        }
+        inspector.checkBuildings(building);
+
     }
 }
