@@ -30,10 +30,9 @@ public class Main {
             System.out.println(building.toString());
         }
 
+        inspector.checkBuildings(building);
         for (Map.Entry<Inspector, Building> entry : inspectorBuildingHashMap.entrySet()) {
             System.out.println(entry);
         }
-        inspector.checkBuildings(building);
-
     }
 }

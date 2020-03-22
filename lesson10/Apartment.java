@@ -11,10 +11,6 @@ public class Apartment {
         }
     }
 
-    public ArrayList<Person> getResidences() {
-        return residences;
-    }
-
     public boolean addPerson(Person person) {
         for (int i = 0; i < residences.size(); i++) {
             if (residences.get(i) == null) {
