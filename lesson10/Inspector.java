@@ -8,7 +8,6 @@ public class Inspector extends Person {
         for (Apartment floor : building.floors) {
             for (int i = 0; i < floor.residences.size(); i++) {
                 if (floor.residences.get(i) == null) {
-
                 } else {
                     if (floor.residences.get(i).getRating() <= 1000) {
                         floor.remove(getRating());
