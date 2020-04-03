@@ -26,6 +26,6 @@ public class Triangle extends Figure {
     }
 
     public String toString() {
-        return "Длина 2ой стороны = " + sideLength2 + " см; Длина 3ей стороны = " + sideLength3 + " см; " + super.toString() ;
+        return "Длина 2ой стороны = " + sideLength2 + " см; Длина 3ей стороны = " + sideLength3 + " см; " + super.toString();
     }
 }
