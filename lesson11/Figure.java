@@ -1,9 +1,8 @@
-public abstract class Figure extends Point {
+public abstract class Figure {
     String name;
     double length;
 
-    public Figure(String name, double length, double x, double y) {
-        super(x, y);
+    public Figure(String name, double length) {
         this.name = name;
         this.length = length;
     }

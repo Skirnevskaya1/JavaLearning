@@ -1,7 +1,15 @@
 public class Square extends Figure implements Moveable, Rotatable {
+    double x;
+    double y;
+    Point point;
+
 
     public Square(String name, double length, double x, double y) {
-        super(name, length, x, y);
+        super(name, length);
+        this.x = x;
+        this.y = y;
+        this.point = new Point(x, y);
+
     }
 
     @Override
@@ -22,7 +30,7 @@ public class Square extends Figure implements Moveable, Rotatable {
     public void move(double dx, double dy) {
         System.out.println("Наименование = " + name + "\n" + "Длина стороны фигуры: " + length + "\n" + "Координаты местонахождения: " + "\n" + x + " ; " + y);
         System.out.println("Сдвиг координаты на : " + dx + " ; " + dy);
-        super.move(dx, dy);
+        point.move(dx, dy);
     }
 
     @Override

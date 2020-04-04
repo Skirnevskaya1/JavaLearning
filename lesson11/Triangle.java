@@ -3,8 +3,11 @@ public class Triangle extends Figure implements Rotatable, Moveable {
     double sideLength2;
     double sideLength3;
 
+    double x;
+    double y;
+
     public Triangle(String name, double length, double x, double y, double sideLength2, double sideLength3) {
-        super(name, length, x, y);
+        super(name, length);
         this.sideLength2 = sideLength2;
         this.sideLength3 = sideLength3;
     }
@@ -29,7 +32,7 @@ public class Triangle extends Figure implements Rotatable, Moveable {
     public void move(double dx, double dy) {
         System.out.println("\n" + "Наименование = " + name + "\n" + "Длина стороны фигуры: " + "\n" + length + "\n" + sideLength2 + "\n" + sideLength3 + "\n" + "Координаты местонахождения: " + "\n" + x + " ; " + y);
         System.out.println("Сдвиг координаты на : " + dx + " ; " + dy);
-        super.move(dx, dy);
+        //super.move(dx, dy);
     }
 
     @Override
