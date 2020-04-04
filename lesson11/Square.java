@@ -1,8 +1,7 @@
-public class Square extends Figure implements Moveable {
-    Point point = new Point(1, 1);//сдвиг величина
+public class Square extends Figure implements Moveable, Rotatable {
 
-    public Square(String name, double length) {
-        super(name, length);
+    public Square(String name, double length, double x, double y) {
+        super(name, length, x, y);
     }
 
     @Override
@@ -19,12 +18,17 @@ public class Square extends Figure implements Moveable {
         return super.toString();
     }
 
+    @Override
     public void move(double dx, double dy) {
-        System.out.println("Наименование = " + name + "\n" + "Длина стороны фигуры: " + length + "\n" + "Координаты местонахождения: " + "\n" + dx + " ; " + dy);
-        point.move(dx, dy);
+        System.out.println("Наименование = " + name + "\n" + "Длина стороны фигуры: " + length + "\n" + "Координаты местонахождения: " + "\n" + x + " ; " + y);
+        System.out.println("Сдвиг координаты на : " + dx + " ; " + dy);
+        super.move(dx, dy);
     }
 
+    @Override
     public void rotate(double degrees) {
-        point.rotate(degrees);
+        double ax = (x * (Math.cos(degrees))) - (y * (Math.sin(degrees)));
+        double ay = (x * (Math.sin(degrees))) + (y * (Math.cos(degrees)));
+        System.out.println("Координаты после поворота: " + "\n" + ax + " ; " + ay);
     }
 }
