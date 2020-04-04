@@ -13,5 +13,4 @@ public class Point implements Moveable {
         double ay = y + dy;
         System.out.println("Координаты после сдвига: " + "\n" + ax + " ; " + ay);
     }
-
 }

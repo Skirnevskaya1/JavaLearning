@@ -2,6 +2,10 @@ public abstract class Figure {
     String name;
     double length;
 
+    public Figure(String name) {
+        this.name = name;
+    }
+
     public Figure(String name, double length) {
         this.name = name;
         this.length = length;
