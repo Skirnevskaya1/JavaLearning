@@ -1,6 +1,6 @@
 public class Square extends Figure implements Moveable, Rotatable {
-    double x;
-    double y;
+    protected double x;
+    protected double y;
     Point point;
 
 

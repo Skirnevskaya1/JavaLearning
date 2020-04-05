@@ -1,6 +1,6 @@
 public class Point implements Moveable {
-    double x;
-    double y;
+    protected double x;
+    protected double y;
 
     public Point(double x, double y) {
         this.x = x;
