@@ -1,4 +1,4 @@
-public class Triangle extends Figure implements Rotatable, Moveable {
+public class Triangle extends Figure {
     private Point point1;
     private Point point2;
     private Point point3;
