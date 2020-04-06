@@ -1,15 +1,13 @@
-public class Square extends Figure implements Moveable, Rotatable {
+public class Square extends Figure {
     private double x;
     private double y;
     Point point;
-
 
     public Square(String name, double length, double x, double y) {
         super(name, length);
         this.x = x;
         this.y = y;
         this.point = new Point(x, y);
-
     }
 
     @Override
