@@ -1,4 +1,4 @@
-public abstract class Figure {
+public abstract class Figure implements Moveable,Rotatable {
     protected String name;
     protected double length;
 
@@ -14,6 +14,10 @@ public abstract class Figure {
     public abstract double findArea();
 
     public abstract double findPerimeter();
+
+    public abstract void move(double dx, double dy);
+
+    public abstract void rotate(double degrees);
 
     @Override
     public String toString() {
