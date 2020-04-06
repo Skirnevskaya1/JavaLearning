@@ -1,15 +1,9 @@
-public class Square extends Figure implements Moveable, Rotatable {
-    protected double x;
-    protected double y;
+public class Square extends Figure {
     Point point;
-
 
     public Square(String name, double length, double x, double y) {
         super(name, length);
-        this.x = x;
-        this.y = y;
         this.point = new Point(x, y);
-
     }
 
     @Override
@@ -28,15 +22,17 @@ public class Square extends Figure implements Moveable, Rotatable {
 
     @Override
     public void move(double dx, double dy) {
-        System.out.println("Наименование = " + name + "\n" + "Длина стороны фигуры: " + length + "\n" + "Координаты местонахождения: " + "\n" + x + " ; " + y);
+        System.out.println("Наименование = " + name + "\n" + "Длина стороны фигуры: " + length + "\n" + "Координаты местонахождения: " + "\n" + point.getX() + " ; " + point.getY());
         System.out.println("Сдвиг координаты на : " + dx + " ; " + dy);
         point.move(dx, dy);
     }
 
     @Override
     public void rotate(double degrees) {
-        double ax = (x * (Math.cos(degrees))) - (y * (Math.sin(degrees)));
-        double ay = (x * (Math.sin(degrees))) + (y * (Math.cos(degrees)));
+        double ax = (point.getX() * (Math.cos(degrees))) - (point.getY() * (Math.sin(degrees)));
+        double ay = (point.getX() * (Math.sin(degrees))) + (point.getY() * (Math.cos(degrees)));
+        point.setX(ax);
+        point.setY(ay);
         System.out.println("Координаты после поворота: " + "\n" + ax + " ; " + ay);
     }
 }

@@ -1,118 +1,65 @@
-public class Triangle extends Figure implements Rotatable, Moveable {
-    protected double x1;
-    protected double y1;
-    protected double x2;
-    protected double y2;
-    protected double x3;
-    protected double y3;
-    Point point;
-
-    public double getX1(double dx) {
-        return x1;
-    }
-
-    public double setX1(double x1) {
-        this.x1 = x1;
-        return x1;
-    }
-
-    public double getY1(double dy) {
-        return y1;
-    }
-
-    public double setY1(double y1) {
-        this.y1 = y1;
-        return y1;
-    }
-
-    public double getX2(double dx) {
-        return x2;
-    }
-
-    public double setX2(double x2) {
-        this.x2 = x2;
-        return x2;
-    }
-
-    public double getY2(double dy) {
-        return y2;
-    }
-
-    public double setY2(double y2) {
-        this.y2 = y2;
-        return y2;
-    }
-
-    public double getX3() {
-        return x3;
-    }
-
-    public double setX3(double x3) {
-        this.x3 = x3;
-        return x3;
-    }
-
-    public double getY3() {
-        return y3;
-    }
-
-    public double setY3(double y3) {
-        this.y3 = y3;
-        return y3;
-    }
+public class Triangle extends Figure {
+    private Point point1;
+    private Point point2;
+    private Point point3;
 
     public Triangle(String name, double x1, double y1, double x2, double y2, double x3, double y3) {
         super(name);
-        this.x1 = x1;
-        this.y1 = y1;
-        this.x2 = x2;
-        this.y2 = y2;
-        this.x3 = x3;
-        this.y3 = y3;
-        this.point = new Point(x1, y1);
-        this.point = new Point(x2, y2);
-        this.point = new Point(x3, y3);
+        this.point1 = new Point(x1, y1);
+        this.point2 = new Point(x2, y2);
+        this.point3 = new Point(x3, y3);
     }
 
-    public double findLength(double ax1, double ay1, double ax2, double ay2) {
-        double length = Math.sqrt((Math.pow(ax2, 2) - 2 * ax2 * ax1 + Math.pow(ax1, 2)) + (Math.pow(ay2, 2) - 2 * ay2 * ay1 + Math.pow(ay1, 2)));
+    public double findLength(Point point1, Point point2) {
+        double length = Math.sqrt((Math.pow(point2.getX(), 2) - 2 * point2.getX() * point1.getX() + Math.pow(point1.getX(), 2)) + (Math.pow(point2.getY(), 2) - 2 * point2.getY() * point1.getY() + Math.pow(point1.getY(), 2)));
         return length;
     }
 
     public double findHeight() {
-        double p = 0.5 * (findLength(x1, y1, x2, y2) + findLength(x1, y1, x3, y3) + findLength(x2, y2, x3, y3));
-        double height = (2 * Math.sqrt(p * (p - findLength(x1, y1, x2, y2)) * (p - findLength(x1, y1, x3, y3)) * (p - findLength(x2, y2, x3, y3)))) / findLength(x1, y1, x2, y2);
+        double p = 0.5 * (findLength(point1, point2) + findLength(point1, point3) + findLength(point2, point3));
+        double height = (2 * Math.sqrt(p * (p - findLength(point1, point2)) * (p - findLength(point1, point3)) * (p - findLength(point2, point3)))) / findLength(point1, point2);
         return height;
     }
 
     @Override
     public double findArea() {
-        return (0.5 * findLength(x1, y1, x2, y2) * findHeight());
+        return (0.5 * findLength(point1, point2) * findHeight());
     }
 
     @Override
     public double findPerimeter() {
-        return (findLength(x1, y1, x2, y2) + findLength(x1, y1, x3, y3) + findLength(x2, y2, x3, y3));
+        return (findLength(point1, point2) + findLength(point1, point3) + findLength(point2, point3));
     }
 
     @Override
     public void move(double dx, double dy) {
-        System.out.println("\n" + "Наименование = " + name + "\n" + "Длина стороны фигуры: " + "\n" + findLength(x1, y1, x2, y2) + "\n" + findLength(x1, y1, x3, y3) + "\n" + findLength(x2, y2, x3, y3) + "\n" + "Координаты местонахождения: " + "\n" + x1 + " ; " + y1 + "\n" + x2 + " ; " + y2 + "\n" + x3 + " ; " + y3);
+        System.out.println("\n" + "Наименование = " + name + "\n" + "Длина стороны фигуры: " + "\n" + findLength(point1, point2) + "\n" + findLength(point1, point3) + "\n" + findLength(point2, point3) + "\n" + "Координаты местонахождения: " + "\n" + point1.getX() + " ; " + point1.getY() + "\n" + point2.getX() + " ; " + point2.getY() + "\n" + point3.getX() + " ; " + point3.getY());
         System.out.println("Сдвиг координаты на : " + dx + " ; " + dy);
-        point.move(setX1(dx), setY1(dy));
-        point.move(setX2(dx), setY2(dy));
-        point.move(setX3(dx), setY3(dy));
+        point1.move(dx, dy);
+        point2.move(dx, dy);
+        point3.move(dx, dy);
     }
 
     @Override
     public void rotate(double degrees) {
-        double ax = (x1 * (Math.cos(degrees))) - (y1 * (Math.sin(degrees)));
-        double ay = (x1 * (Math.sin(degrees))) + (y1 * (Math.cos(degrees)));
-        System.out.println("Координаты после поворота: " + "\n" + ax + " ; " + ay);
+
+        double ax1 = (point1.getX() * (Math.cos(degrees))) - (point1.getY() * (Math.sin(degrees)));
+        double ay1 = (point1.getX() * (Math.sin(degrees))) + (point1.getY() * (Math.cos(degrees)));
+        double ax2 = (point2.getX() * (Math.cos(degrees))) - (point2.getY() * (Math.sin(degrees)));
+        double ay2 = (point2.getX() * (Math.sin(degrees))) + (point2.getY() * (Math.cos(degrees)));
+        double ax3 = (point3.getX() * (Math.cos(degrees))) - (point3.getY() * (Math.sin(degrees)));
+        double ay3 = (point3.getX() * (Math.sin(degrees))) + (point3.getY() * (Math.cos(degrees)));
+        point1.setX(ax1);
+        point1.setY(ay1);
+        point1.setX(ax2);
+        point1.setY(ay2);
+        point1.setX(ax3);
+        point1.setY(ay3);
+        System.out.println("Координаты после поворота: " + "\n" + ax1 + " ; " + ay1 + "\n" + ax2 + " ; " + ay2 + "\n" + ax3 + " ; " + ay3);
     }
 
     public String toString() {
         return "Наименование = " + name +
-                "; Длина стороны = " + findLength(x1, y1, x2, y2) + " см" + "\n" + "Длина 2ой стороны = " + findLength(x1, y1, x3, y3) + " см; Длина 3ей стороны = " + findLength(x2, y2, x3, y3) + " см; " + "S = " + findArea() + "\n" + "P = " + findPerimeter();
+                "; Длина стороны = " + findLength(point1, point2) + " см" + "\n" + "Длина 2ой стороны = " + findLength(point1, point3) + " см; Длина 3ей стороны = " + findLength(point2, point3) + " см; " + "S = " + findArea() + "\n" + "P = " + findPerimeter();
     }
 }
