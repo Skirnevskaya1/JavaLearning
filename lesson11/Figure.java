@@ -1,6 +1,6 @@
 public abstract class Figure {
-    String name;
-    double length;
+    protected String name;
+    protected double length;
 
     public Figure(String name) {
         this.name = name;
