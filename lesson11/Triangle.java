@@ -42,12 +42,19 @@ public class Triangle extends Figure implements Rotatable, Moveable {
 
     @Override
     public void rotate(double degrees) {
+
         double ax1 = (point1.getX() * (Math.cos(degrees))) - (point1.getY() * (Math.sin(degrees)));
         double ay1 = (point1.getX() * (Math.sin(degrees))) + (point1.getY() * (Math.cos(degrees)));
         double ax2 = (point2.getX() * (Math.cos(degrees))) - (point2.getY() * (Math.sin(degrees)));
         double ay2 = (point2.getX() * (Math.sin(degrees))) + (point2.getY() * (Math.cos(degrees)));
         double ax3 = (point3.getX() * (Math.cos(degrees))) - (point3.getY() * (Math.sin(degrees)));
         double ay3 = (point3.getX() * (Math.sin(degrees))) + (point3.getY() * (Math.cos(degrees)));
+        point1.setX(ax1);
+        point1.setY(ay1);
+        point1.setX(ax2);
+        point1.setY(ay2);
+        point1.setX(ax3);
+        point1.setY(ay3);
         System.out.println("Координаты после поворота: " + "\n" + ax1 + " ; " + ay1 + "\n" + ax2 + " ; " + ay2 + "\n" + ax3 + " ; " + ay3);
     }
 
