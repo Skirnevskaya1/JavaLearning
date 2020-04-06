@@ -8,6 +8,11 @@ public class Point implements Moveable {
         this.y = y;
     }
 
+    public void setXY(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+
     public void setX(double x) {
         this.x = x;
     }
