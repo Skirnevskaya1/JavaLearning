@@ -1,18 +1,18 @@
 public class Point implements Moveable {
-    public double getX() {
-        return x;
-    }
-
     public void setX(double x) {
         this.x = x;
     }
 
-    public double getY() {
-        return y;
-    }
-
     public void setY(double y) {
         this.y = y;
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
     }
 
     private double x;
@@ -25,8 +25,8 @@ public class Point implements Moveable {
 
     @Override
     public void move(double dx, double dy) {
-        double ax = x + dx;
-        double ay = y + dy;
-        System.out.println("Координаты после сдвига: " + "\n" + ax + " ; " + ay);
+        x = x + dx;
+        y = y + dy;
+        System.out.println("Координаты после сдвига: " + "\n" + x + " ; " + y);
     }
 }
