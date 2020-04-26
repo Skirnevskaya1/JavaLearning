@@ -8,6 +8,6 @@ public class Character {
         this.name = name;
         health = 100;
         experience = 0;
-        days = 180;
+        days = 90;
     }
 }
