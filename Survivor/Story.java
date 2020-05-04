@@ -3250,7 +3250,7 @@ public class Story {
     public void go(int num) {
         if (num == 1 || num == 2 || num == 3) {
             current_situation = current_situation.direction[num - 1];
-        } else if (num >= 0 || num <= 0) {
+        } else {
             System.out.println("Вы можете выбирать из " + current_situation.direction.length + " вариантов");
         }
     }
