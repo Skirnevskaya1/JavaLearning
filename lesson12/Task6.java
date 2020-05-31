@@ -13,11 +13,14 @@ public class Task6 {
         Elements elements2 = document2.getAllElements();
 
         for (Element element1 : elements1) {
+            String a1 = element1.text();
             for (Element element2 : elements2) {
-                if (element1 != element2) {
-                    System.out.println(element1 + " НЕ РАВЕН " + element2);
-                } else System.out.println(element1 + " РАВЕН " + element2);
+                String a2 = element2.text();
+                if (a1.equalsIgnoreCase(a2)) {
+                    System.out.println(a1 + " НЕ РАВЕН " + a2);
+                } else System.out.println(a1 + " РАВЕН " + a2);
             }
         }
+
     }
 }
