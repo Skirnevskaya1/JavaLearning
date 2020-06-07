@@ -5,22 +5,24 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class Task7 {
     public static void main(String[] args) throws IOException {
         Document document = Jsoup.connect("https://www.dns-shop.ru/catalog/17a8a01d16404e77/smartfony/?order=1&groupBy=none&brand=apple&f[pqc]=kdf7y-o8r3o&stock=2").get();
         Elements elementsLinks = document.select("a[class=ui-link]");
-        Iterator<Element> iterator = elementsLinks.iterator();
-        ArrayList<Elements> arrayList = new ArrayList<>();
+        ArrayList<String> urls = new ArrayList<>();
 
-        while (iterator.hasNext()) {
-            Element element = iterator.next();
-            arrayList.add(elementsLinks);
-
-            String name = element.select("h1[class=page-title price-item-title]").text();
-            String price = element.select("span[class=current-price-value]").text();
-            System.out.println(name + " " + price);
+        for (Element elements : elementsLinks) {
+            urls.add(elements.attr("href"));
+        }
+        for (int i = 0; i < urls.size(); i++) {
+            if (urls.get(i).startsWith("/product/")) {
+             //     System.out.println(urls.get(i));
+                Document document1 = Jsoup.parse(urls.get(i));
+                String name = document1.select("h1[class=page-title price-item-title]").text();
+                String price = document1.select("span[class=current-price-value]").text();
+                System.out.println(name + " " + price);
+            }
         }
     }
 }
