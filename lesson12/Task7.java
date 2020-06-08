@@ -13,6 +13,7 @@ public class Task7 {
         Elements elementsLinks = document.select("a[class=ui-link]");
         ArrayList<String> urls = new ArrayList<>();
         ArrayList<String> urls2 = new ArrayList<>();
+
         for (Element elements : elementsLinks) {
             urls.add(elements.attr("href"));
         }
@@ -22,11 +23,14 @@ public class Task7 {
             }
         }
         for (int i = 0; i < urls2.size(); i++) {
-            //  System.out.println(urls2.get(i));
-            Document document1 = (Document) Jsoup.connect(urls.get(i));
-            String name = document1.select("h1[class=page-title price-item-title]").text();
-            String price = document1.select("span[class=current-price-value]").text();
+            // System.out.println(urls2.get(i));
+            Connection document1 = Jsoup.connect(urls2.get(i));
+            String name = document1.get().select("h1[class=page-title price-item-title]").text();
+            String price = document1.get().select("span[class=current-price-value]").text();
             System.out.println(name + " " + price);
+
+//            int priceSmart = Integer.parseInt(price.trim());
+//            System.out.println(name + " " + priceSmart);
         }
     }
 }
