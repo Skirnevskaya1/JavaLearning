@@ -6,6 +6,9 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
 
 public class Task7 {
     public static void main(String[] args) throws IOException {
@@ -13,6 +16,7 @@ public class Task7 {
         Elements elementsLinks = document.select("a[class=ui-link]");
         ArrayList<String> urls = new ArrayList<>();
         ArrayList<String> urls2 = new ArrayList<>();
+        ArrayList<Integer> list = new ArrayList<>();
 
         for (Element elements : elementsLinks) {
             urls.add(elements.attr("href"));
@@ -26,11 +30,15 @@ public class Task7 {
             // System.out.println(urls2.get(i));
             Connection document1 = Jsoup.connect(urls2.get(i));
             String name = document1.get().select("h1[class=page-title price-item-title]").text();
-            String price = document1.get().select("span[class=current-price-value]").text();
-            System.out.println(name + " " + price);
+            String price = document1.get().select("div[class=hidden-xs hidden-sm price-block-wrap price-block-wrap_view_desktop] span[class=current-price-value]").text();
 
-//            int priceSmart = Integer.parseInt(price.trim());
-//            System.out.println(name + " " + priceSmart);
+            //   System.out.println(name + " " + price);
+            int priceSmart = Integer.parseInt(price.replaceAll(" ", ""));
+            list.add(priceSmart);
+            Collections.sort(list);
+            for (Integer s : list) {
+                System.out.println(name + " " + s);
+            }
         }
     }
 }
