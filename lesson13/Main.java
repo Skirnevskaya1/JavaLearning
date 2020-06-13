@@ -30,7 +30,6 @@ public class Main {
             phones.add(new Phone(name, priceSmart));
         }
         Collections.sort(phones);
-        Collections.min(phones);
-        System.out.println(phones);
+        System.out.println(Collections.min(phones));
     }
 }
