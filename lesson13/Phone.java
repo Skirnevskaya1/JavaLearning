@@ -8,19 +8,9 @@ public class Phone implements Comparable<Phone> {
         this.price = price;
     }
 
-    public String getName() {
-        return name;
-    }
-
     @Override
     public String toString() {
-        return "name='" + name + '\'' +
-                ", price=" + price +
-                '}';
-    }
-
-    public int getPrice() {
-        return price;
+        return name + " " + price + "\n";
     }
 
     @Override
