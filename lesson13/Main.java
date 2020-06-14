@@ -9,13 +9,11 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        try {
-            for (int j = 0; j < 10; j++) {
+        for (int j = 1; ; j++) {
+            try {
+                //  for (int j = 0; j < 10; j++) {
                 Document document = Jsoup.connect("https://www.dns-shop.ru/catalog/17a8a01d16404e77/smartfony/?order=1&groupBy=none&brand=apple&f[pqc]=kdf7y-o8r3o&stock=2" + "https://www.dns-shop.ru/catalog/17a8a01d16404e77/smartfony/?p=" + j + "&order=1&groupBy=none&brand=apple&f[pqc]=kdf7y-o8r3o&stock=2").get();
                 Elements elementsLinks = document.select("a[class=ui-link]");
-                if (elementsLinks.isEmpty()) {
-                    System.out.println("No items found !");
-                }
                 ArrayList<String> urls = new ArrayList<>();
                 ArrayList<String> urls2 = new ArrayList<>();
                 ArrayList<Phone> phones = new ArrayList<>();
@@ -39,10 +37,9 @@ public class Main {
                 // for (int i = phones.size() - 4; i < phones.size(); i++) {
                 //    System.out.print(phones.get(i));
                 System.out.println(Collections.min(phones));
+            } catch (IOException e) {
+                break;
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
-
 }
