@@ -1,13 +1,21 @@
 public class Listener implements Runnable {
-    public Listener(Service service) {
-        this.service = service;
-    }
-
     Service service;
     Track track;
 
+    public Listener(Service service, Track track) {
+        this.service = service;
+        this.track = track;
+    }
+
     @Override
     public void run() {
-        service.getTrack(track);
+
+        try {
+            Thread.sleep(2000);
+            service.getTrack(track);
+            System.out.println("Трек получен!");
+        } catch (InterruptedException | TrackNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
