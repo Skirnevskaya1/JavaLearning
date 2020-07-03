@@ -28,15 +28,15 @@ public class Service {
     }
 
     public Track addTrack(Track track) {
-        System.out.println("Записываю на сервис трек " + track.toStringAdd());
+        System.out.println("Записываю на сервис трек " + track.toString());
         return track;
     }
 
     public Track getTrack(Track track) throws TrackNotFoundException {
         if (true) {
-            System.out.println("Слушатель получает с сервиса трек " + track.toStringGet());
+            System.out.println("Слушатель получает с сервиса трек " + track.toString());
         } else {
-            throw new TrackNotFoundException("Внимание! Не найден трек " + track.toStringGet());
+            throw new TrackNotFoundException("Внимание! Не найден трек " + track.toString());
         }
         return track;
     }

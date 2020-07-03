@@ -9,7 +9,6 @@ public class Listener implements Runnable {
 
     @Override
     public void run() {
-
         try {
             Thread.sleep(2000);
             service.getTrack(track);

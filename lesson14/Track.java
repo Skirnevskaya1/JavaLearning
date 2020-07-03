@@ -1,10 +1,22 @@
 public class Track {
-    String artist;
-    String name;
-    int trackNum;
-    static int constant = 1;
-    double length;
-    long amountOfListening;
+    private String artist;
+    private String name;
+    private int trackNum;
+    private static int constant = 1;
+    private double length;
+    private long amountOfListening;
+
+    public String getArtist() {
+        return artist;
+    }
+
+    public long getAmountOfListening() {
+        return amountOfListening;
+    }
+
+    public void setAmountOfListening(long amountOfListening) {
+        this.amountOfListening = amountOfListening;
+    }
 
     public Track(String artist, String name, int trackNum, double length, long amountOfListening) {
         this.artist = artist;
@@ -14,7 +26,8 @@ public class Track {
         this.amountOfListening = amountOfListening;
     }
 
-    public String toStringGet() {
+    @Override
+    public String toString() {
         return "Track{" +
                 "artist='" + artist + '\'' +
                 ", name='" + name + '\'' +
@@ -23,15 +36,4 @@ public class Track {
                 ", amountOfListening=" + amountOfListening +
                 '}';
     }
-
-    public String toStringAdd() {
-        return "Track{" +
-                "artist='" + artist + '\'' +
-                ", name='" + name + '\'' +
-                ", trackNum=" + trackNum +
-                ", length=" + length +
-                '}';
-    }
-
-
 }

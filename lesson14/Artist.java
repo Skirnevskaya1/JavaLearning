@@ -10,8 +10,10 @@ public class Artist implements Runnable {
 
     @Override
     public void run() {
+        track.getAmountOfListening();
+        track.setAmountOfListening(0);
         try {
-            System.out.println("Пришло вдохновение! Артист " + track.artist + " создает трек");
+            System.out.println("Пришло вдохновение! Артист " + track.getArtist() + " создает трек");
             Thread.sleep(1000);
             service.addTrack(track);
             System.out.println("Трек успешно отправлен на сервис!");
