@@ -16,6 +16,7 @@ public class Listener implements Runnable {
             System.out.println("Трек получен!");
         } catch (InterruptedException | TrackNotFoundException e) {
             e.printStackTrace();
+            System.out.println("Возникла ошибка в получении трека!");
         }
     }
 }

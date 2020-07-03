@@ -11,9 +11,8 @@ public class Artist implements Runnable {
     @Override
     public void run() {
         try {
-            System.out.println("Пришло вдохновение! Создаю трек.");
+            System.out.println("Пришло вдохновение! Артист " + track.artist + " создает трек");
             Thread.sleep(1000);
-
             service.addTrack(track);
             System.out.println("Трек успешно отправлен на сервис!");
         } catch (Exception e) {
