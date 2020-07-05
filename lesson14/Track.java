@@ -1,39 +1,24 @@
 public class Track {
-    private String artist;
-    private String name;
-    private int trackNum;
-    private static int constant = 1;
-    private double length;
-    private long amountOfListening;
+    private static String artist;
+    private static String name;
+    private static int time;
+    private static long amountOfListening;
 
-    public String getArtist() {
-        return artist;
-    }
+    private static int constant = 0;
+    private final static int max = 200;
+    private final static int min = 100;
 
-    public long getAmountOfListening() {
-        return amountOfListening;
-    }
-
-    public void setAmountOfListening(long amountOfListening) {
-        this.amountOfListening = amountOfListening;
-    }
-
-    public Track(String artist, String name, int trackNum, double length, long amountOfListening) {
+    public Track(String artist, String name, int time, long amountOfListening) {
         this.artist = artist;
-        this.name = name;
-        this.trackNum = trackNum + constant;
-        this.length = length;
+        this.name = name + " " + constant;
+        this.time = time;
         this.amountOfListening = amountOfListening;
+        constant++;
     }
 
-    @Override
-    public String toString() {
-        return "Track{" +
-                "artist='" + artist + '\'' +
-                ", name='" + name + '\'' +
-                ", trackNum=" + trackNum +
-                ", length=" + length +
-                ", amountOfListening=" + amountOfListening +
-                '}';
+    public static Track getInstance() {
+        String name = "Track ";
+        int amountOfListening = (int) (Math.random() * (max - min)) + min;
+        return new Track(artist, name, time, amountOfListening);
     }
 }
