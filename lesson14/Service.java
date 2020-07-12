@@ -3,6 +3,10 @@ import java.util.ArrayList;
 public class Service {
     static ArrayList<Track> tracks = new ArrayList<Track>();
 
+    public Service() {
+        this.tracks = new ArrayList<>();
+    }
+
     public void addTrack(Track track) {
         tracks.add(track);
         System.out.println("Добавлен в сервис трек " + track.toString());
