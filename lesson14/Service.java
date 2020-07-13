@@ -19,8 +19,5 @@ public class Service {
             int ind = (int) Math.random() * (tracks.size());
             return tracks.get(ind);
         }
-//        Track randomElement = trackArrayList.get(rand.nextInt(trackArrayList.size()));
-//        System.out.println("Слушатель получает с сервиса трек " + randomElement);
-//        return randomElement;
     }
 }

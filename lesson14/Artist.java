@@ -25,9 +25,9 @@ public class Artist implements Runnable {
                 int time = (int) (Math.random() * (5000 - 1000) + 1000);
                 Thread.sleep(time);
                 Track track = Track.getInstance();
-
                 Main.service.addTrack(track);
                 System.out.println("Трек успешно отправлен на сервис!");
+                break;
             }
 
         } catch (InterruptedException e) {

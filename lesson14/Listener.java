@@ -1,16 +1,17 @@
 public class Listener implements Runnable {
     String name;
-    private static long amountOfListening;
+    protected static int amountOfListening;
     private static int constanta = 0;
 
-    public Listener(String name) {
+    public Listener(String name, int amountOfListening) {
         this.name = name + " " + constanta;
+        this.amountOfListening = amountOfListening + constanta;
         constanta++;
     }
 
     public static Listener getInstance() {
         String name = "Слушатель";
-        return new Listener(name);
+        return new Listener(name, amountOfListening);
     }
 
     @Override
@@ -20,16 +21,14 @@ public class Listener implements Runnable {
                 int time = (int) (Math.random() * (5000 - 1000) + 1000);
                 Thread.sleep(time);
                 Track track = Track.getInstance();
-
                 Main.service.getTrack();
-                System.out.println(this.name + " получил трек " + track);
-
-                System.out.println(this.name + " послушал трек " + track);
+                System.out.println(this.name + " получил и послушал трек " + track);
 
             } catch (InterruptedException | TrackNotFoundException e) {
                 e.printStackTrace();
                 System.out.println("Возникла ошибка в получении трека!" + e);
             }
+            break;
         }
     }
 }
