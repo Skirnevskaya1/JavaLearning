@@ -1,17 +1,15 @@
 public class Listener implements Runnable {
     String name;
-    protected static int amountOfListening;
     private static int constanta = 0;
 
-    public Listener(String name, int amountOfListening) {
+    public Listener(String name) {
         this.name = name + " " + constanta;
-        this.amountOfListening = amountOfListening + constanta;
         constanta++;
     }
 
     public static Listener getInstance() {
         String name = "Слушатель";
-        return new Listener(name, amountOfListening);
+        return new Listener(name);
     }
 
     @Override
