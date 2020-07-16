@@ -16,8 +16,10 @@ public class Track {
     }
 
     public static Track getInstance() {
-        String name = "Track ";
-        int time = (int) (Math.random() * (max - min)) + min;
+        artist = null;
+        name = "Track ";
+        time = (int) (Math.random() * (max - min)) + min;
+        amountOfListening = 0;
         return new Track(artist, name, time, amountOfListening);
     }
 

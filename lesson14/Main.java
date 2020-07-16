@@ -5,8 +5,8 @@ public class Main {
     static Listener listener;
 
     public static void main(String[] args) throws InterruptedException {
-        Service.tracks.add(track);
-        while (true) {
+        // Service.tracks.add(track);
+        for (int i = 1; i < 10; i++) {
             Thread threadArtist = new Thread(artist.getInstance());
             threadArtist.run();
             //threadArtist.start();

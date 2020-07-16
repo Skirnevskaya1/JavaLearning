@@ -20,7 +20,7 @@ public class Artist implements Runnable {
     public void run() {
         System.out.println(this.name + " - начал работу");
         try {
-            System.out.println("Пришло вдохновение! Создаю трек");
+            System.out.println("Создаю трек ");
             while (true) {
                 int time = (int) (Math.random() * (5000 - 1000) + 1000);
                 Thread.sleep(time);
