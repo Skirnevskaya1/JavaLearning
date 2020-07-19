@@ -24,8 +24,9 @@ public class Track {
     }
 
     public int increaseAmount() {
-        int increase = amountOfListening + 1;
-        return increase;
+        this.amountOfListening = amountOfListening + constant;
+        constant++;
+        return this.amountOfListening;
     }
 
     public String getAmount() {
