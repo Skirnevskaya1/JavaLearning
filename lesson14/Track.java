@@ -23,13 +23,13 @@ public class Track {
         return new Track(artist, name, time, amountOfListening);
     }
 
-    public int increaseAmount(int amountOfListening) {
-        amountOfListening++;
-        return increaseAmount(amountOfListening);
+    public int increaseAmount() {
+        int increase = amountOfListening + 1;
+        return increase;
     }
 
     public String getAmount() {
-        return "Track { " + Artist.getName() + "; " + name + "; " + time + " секунд(а); " + increaseAmount(amountOfListening) + " кол-во прослушиваний }";
+        return "Track { " + Artist.getName() + "; " + name + "; " + time + " секунд(а); " + increaseAmount() + " кол-во прослушиваний }";
     }
 
     @Override
