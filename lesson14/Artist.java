@@ -1,7 +1,11 @@
 
 public class Artist implements Runnable {
     private static int constanta = 0;
-    protected static String name;
+    private static String name;
+
+    public static String getName() {
+        return name;
+    }
 
     public Artist(String name) {
         this.name = name + " " + constanta;

@@ -19,7 +19,7 @@ public class Listener implements Runnable {
                 int time = (int) (Math.random() * (5000 - 1000) + 1000);
                 Thread.sleep(time);
                 Track trackService = Main.service.getTrack();
-                System.out.println(this.name + " получил и послушал трек " + trackService.getAmountOfListening());
+                System.out.println(this.name + " получил и послушал трек " + trackService.getAmount());
 
             } catch (InterruptedException | TrackNotFoundException e) {
                 e.printStackTrace();

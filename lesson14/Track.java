@@ -11,7 +11,6 @@ public class Track {
         this.artist = artist;
         this.name = name + "" + constant;
         this.time = time;
-        // this.amountOfListening = amountOfListening + constant;
         this.amountOfListening = amountOfListening;
         constant++;
     }
@@ -24,13 +23,17 @@ public class Track {
         return new Track(artist, name, time, amountOfListening);
     }
 
-    public static String getAmountOfListening() {
+    public int increaseAmount() {
         int amount = amountOfListening + 1;
-        return "Track { " + Artist.name + "; " + name + "; " + time + " секунд(а); " + amount + " кол-во прослушиваний }";
+        return amount;
+    }
+
+    public String getAmount() {
+        return "Track { " + Artist.getName() + "; " + name + "; " + time + " секунд(а); " + increaseAmount() + " кол-во прослушиваний }";
     }
 
     @Override
     public String toString() {
-        return "Track { " + Artist.name + "; " + name + "; " + time + " секунд(а); " + amountOfListening + " кол-во прослушиваний }";
+        return "Track { " + Artist.getName() + "; " + name + "; " + time + " секунд(а); " + amountOfListening + " кол-во прослушиваний }";
     }
 }
