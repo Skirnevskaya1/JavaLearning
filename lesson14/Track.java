@@ -11,7 +11,8 @@ public class Track {
         this.artist = artist;
         this.name = name + "" + constant;
         this.time = time;
-        this.amountOfListening = amountOfListening + constant;
+        // this.amountOfListening = amountOfListening + constant;
+        this.amountOfListening = amountOfListening;
         constant++;
     }
 
@@ -21,6 +22,11 @@ public class Track {
         time = (int) (Math.random() * (max - min)) + min;
         amountOfListening = 0;
         return new Track(artist, name, time, amountOfListening);
+    }
+
+    public static String getAmountOfListening() {
+        int amount = amountOfListening + 1;
+        return "Track { " + Artist.name + "; " + name + "; " + time + " секунд(а); " + amount + " кол-во прослушиваний }";
     }
 
     @Override

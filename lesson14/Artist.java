@@ -3,7 +3,6 @@ public class Artist implements Runnable {
     private static int constanta = 0;
     protected static String name;
 
-
     public Artist(String name) {
         this.name = name + " " + constanta;
         constanta++;
@@ -15,12 +14,11 @@ public class Artist implements Runnable {
         return new Artist(name);
     }
 
-
     @Override
     public void run() {
         System.out.println(this.name + " - начал работу");
         try {
-            System.out.println("Создаю трек ");
+            System.out.println("Создаю трек...");
             while (true) {
                 int time = (int) (Math.random() * (5000 - 1000) + 1000);
                 Thread.sleep(time);

@@ -9,7 +9,7 @@ public class Service {
 
     public void addTrack(Track track) {
         tracks.add(track);
-        System.out.println("Добавлен в сервис трек " + track.toString());
+        System.out.println("Добавлен в сервис " + track.toString());
     }
 
     public Track getTrack() throws TrackNotFoundException {

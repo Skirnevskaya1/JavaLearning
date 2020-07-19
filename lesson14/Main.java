@@ -1,11 +1,10 @@
 public class Main {
     static Service service = new Service();
     static Artist artist;
-    static Track track;
     static Listener listener;
 
     public static void main(String[] args) throws InterruptedException {
-        // Service.tracks.add(track);
+
         for (int i = 1; i < 10; i++) {
             Thread threadArtist = new Thread(artist.getInstance());
             threadArtist.run();
