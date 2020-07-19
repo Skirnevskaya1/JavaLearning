@@ -24,8 +24,7 @@ public class Track {
     }
 
     public int increaseAmount() {
-        this.amountOfListening = amountOfListening + constant;
-        constant++;
+        this.amountOfListening = amountOfListening + 1;
         return this.amountOfListening;
     }
 
