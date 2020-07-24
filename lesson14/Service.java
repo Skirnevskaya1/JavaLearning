@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
 public class Service {
-    static ArrayList<Track> tracks = new ArrayList<Track>();
+    static ArrayList<Track> tracks = new ArrayList<>();
 
     public Service() {
-        this.tracks = new ArrayList<>();
+        tracks = new ArrayList<>();
     }
 
     public void addTrack(Track track) {
@@ -16,7 +16,7 @@ public class Service {
         if (tracks.size() == 0) {
             throw new TrackNotFoundException("Нет созданных треков!");
         } else {
-            int ind = (int) Math.random() * (tracks.size());
+            int ind = (int) (Math.random() * (tracks.size()));
             return tracks.get(ind);
         }
     }
