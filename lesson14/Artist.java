@@ -1,4 +1,3 @@
-
 public class Artist implements Runnable {
     private static int constanta = 0;
     private static String name;
@@ -8,9 +7,9 @@ public class Artist implements Runnable {
     }
 
     public Artist(String name) {
-        this.name = name + " " + constanta;
+        Artist.name = name + " " + constanta;
         constanta++;
-        System.out.println("Создан артист: " + this.name);
+        System.out.println("Создан артист: " + Artist.name);
     }
 
     public static Artist getInstance() {
@@ -20,7 +19,7 @@ public class Artist implements Runnable {
 
     @Override
     public void run() {
-        System.out.println(this.name + " - начал работу");
+        System.out.println(name + " - начал работу");
         try {
             System.out.println("Создаю трек...");
             while (true) {
