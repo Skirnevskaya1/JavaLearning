@@ -1,3 +1,4 @@
+
 public class Track {
     private static Artist artist;
     private static String name;
@@ -8,10 +9,10 @@ public class Track {
     private final static int min = 40;
 
     public Track(Artist artist, String name, int time, int amountOfListening) {
-        this.artist = artist;
-        this.name = name + "" + constant;
-        this.time = time;
-        this.amountOfListening = amountOfListening;
+        Track.artist = artist;
+        Track.name = name + "" + constant;
+        Track.time = time;
+        Track.amountOfListening = amountOfListening;
         constant++;
     }
 
@@ -23,9 +24,9 @@ public class Track {
         return new Track(artist, name, time, amountOfListening);
     }
 
-    public int increaseAmount() {
-        this.amountOfListening = amountOfListening + 1;
-        return this.amountOfListening;
+    private int increaseAmount() {
+        amountOfListening = amountOfListening + 1;
+        return amountOfListening;
     }
 
     public String getAmount() {
